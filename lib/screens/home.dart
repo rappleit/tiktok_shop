@@ -86,7 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               decoration: InputDecoration(
                                 hintText: 'Search for items',
                                 // Placeholder text
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.normal),
                                 border: InputBorder.none,
                               ),
                               // Text written inside

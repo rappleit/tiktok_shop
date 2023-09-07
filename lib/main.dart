@@ -37,6 +37,12 @@ class App extends StatelessWidget {
           foregroundColor: kColorScheme.primaryContainer,
         ),
         textTheme: ThemeData().textTheme.copyWith(
+              titleSmall: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: GoogleFonts.lato().fontFamily,
+                color: Colors.black,
+              ),
               titleMedium: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

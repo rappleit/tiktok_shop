@@ -116,19 +116,20 @@ class _ProductScreenState extends State<ProductScreen>
                         ],
                       ),
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ProductItem(
-                              imageUrl: 'https://picsum.photos/250?image=9',
-                              title: 'Product 3',
-                              price: 5.99,
-                            ),
-                            ProductItem(
-                              imageUrl: 'https://picsum.photos/250?image=9',
-                              title: 'Product 4',
-                              price: 5.99,
-                            ),
-                          ]),
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ProductItem(
+                            imageUrl: 'https://picsum.photos/250?image=9',
+                            title: 'Product 3',
+                            price: 5.99,
+                          ),
+                          ProductItem(
+                            imageUrl: 'https://picsum.photos/250?image=9',
+                            title: 'Product 4',
+                            price: 5.99,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
