@@ -25,7 +25,7 @@ class _HeaderTribeState extends State<HeaderTribe> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.all(5),
       color: Color(0xFFFF9393),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -36,11 +36,10 @@ class _HeaderTribeState extends State<HeaderTribe> {
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Icon(Icons.image, color: Colors.white),
+                  child: Image.network(
+                  widget.imageUrl,
+                  height: 100,
+                ),
                 ),
                 SizedBox(width: 10),
                 Expanded(
@@ -59,7 +58,7 @@ class _HeaderTribeState extends State<HeaderTribe> {
                           Text(
                             widget.followers,
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 14,
                                 color: Color(0xFF4B4B4B),
                             ),
                           ),
@@ -67,7 +66,7 @@ class _HeaderTribeState extends State<HeaderTribe> {
                           Icon(
                             Icons.whatshot,
                             size: 20,
-                            color: Colors.white,
+                            color: Color(0xFF4B4B4B)
                           ),
                         ],
                       ),
@@ -87,7 +86,8 @@ class _HeaderTribeState extends State<HeaderTribe> {
                   child: Text(
                     isJoined ? 'Joined' : 'Join',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
                       color: Color(0xFF4B4B4B),
                     ),
                   ),
@@ -108,14 +108,14 @@ class _HeaderTribeState extends State<HeaderTribe> {
               widget.header,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 18,
+                fontSize: 20,
               ),
             ),
             SizedBox(height: 10), // Space between header and subheader
             Text(
               widget.subheader,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 color: Color(0xFF4B4B4B),
  ),
                   ),

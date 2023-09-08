@@ -74,7 +74,7 @@ class TribePosts extends StatelessWidget {
         children: [
           HeaderTribe(
             title: 'UniqloShirts',
-            followers: '3k',
+            followers: '312k',
             header: 'We love Uniqlo Shirts! <3',
             subheader:
                 'Welcome to Uniqlo (heard of that before many times?) Here we talk anything and everything uniqlo shirts. Its so versatile and affordable that we all sometimes struggle to pair it with cute pants/skirt. So lets talk a lil about uniqlo shirts, shall we?',
