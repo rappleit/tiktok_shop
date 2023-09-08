@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/models/product_grid.dart';
 import 'package:tiktok_shop/models/product_item.dart';
 import 'package:tiktok_shop/widgets/bottom_navbar.dart';
 
@@ -13,7 +14,20 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  List<String> tabs = ['Recommended', 'New', 'Beauty', 'Food', 'Household'];
+  List<String> tabs = [
+    'Recommended',
+    'New',
+    'Electronics',
+    'Fragrances',
+    'Skincare',
+    'Groceries',
+    'Home Decor',
+    'Furniture',
+    'Fashion',
+    'Accessories',
+    'Automotive',
+    'Lighting'
+  ];
 
   @override
   void initState() {
@@ -98,58 +112,65 @@ class _ProductScreenState extends State<ProductScreen>
               controller: _tabController,
               children: [
                 SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 1',
-                            price: 5.99,
-                          ),
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 2',
-                            price: 5.99,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 3',
-                            price: 5.99,
-                          ),
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 4',
-                            price: 5.99,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                    child: ProductGridView(
+                  category: "electronics",
+                )),
 
                 // Content for "New" tab
-                Container(
-                  color: Colors.green,
-                ),
-                // Content for "Beauty" tab
-                Container(
-                  color: Colors.yellow,
-                ),
-                // Content for "Food" tab
-                Container(
-                  color: Colors.orange,
-                ),
-                // Content for "House" tab
-                Container(
-                  color: Colors.black,
-                ),
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "skincare",
+                )),
+                // Content for "Electronics" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "electronics",
+                )),
+                // Content for "Fragrances" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "fragrances",
+                )),
+                // Content for "Skincare" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "skincare",
+                )),
+                // Content for "Groceries" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "groceries",
+                )),
+                // Content for "Home Decor" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "home-decor",
+                )),
+                // Content for "Furniture" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "furniture",
+                )),
+                // Content for "Fashion" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "fashion",
+                )),
+                // Content for "Accessories" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "accessories",
+                )),
+                // Content for "Automotive" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "automotive",
+                )),
+                // Content for "Lighting" tab
+                SingleChildScrollView(
+                    child: ProductGridView(
+                  category: "lighting",
+                )),
               ],
             ),
           ),

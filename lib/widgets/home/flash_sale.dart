@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/models/product_item.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FlashSale extends StatelessWidget {
   const FlashSale({super.key});
@@ -16,44 +17,43 @@ class FlashSale extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
-        Container(
-          height: 150,
-          child: Container(
-            color: Color(0xFFFFB1C5),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ProductItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    title: 'Product 1',
-                    price: 0.99,
-                    isFlashSale: true,
+        StreamBuilder<QuerySnapshot>(
+          stream: getFlashSaleProducts(), // Use your method to fetch products
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final products = snapshot.data?.docs ?? [];
+              return Container(
+                height: 165,
+                color: Color(0xFFFFB1C5),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: products.map((productDoc) {
+                      final productData =
+                          productDoc.data() as Map<String, dynamic>;
+                      return ProductItem(
+                        imageUrl: productData['thumbnail'],
+                        title: productData['name'],
+                        price: productData['price'].toDouble(),
+                        isFlashSale: true,
+                      );
+                    }).toList(),
                   ),
-                  ProductItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    title: 'Product 2',
-                    price: 2.99,
-                    isFlashSale: true,
-                  ),
-                  ProductItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    title: 'Product 3',
-                    price: 5.99,
-                    isFlashSale: true,
-                  ),
-                  ProductItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    title: 'Product 4',
-                    price: 9.99,
-                    isFlashSale: true,
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
+              );
+            } else {
+              return CircularProgressIndicator(); // Display a loading indicator while fetching data
+            }
+          },
         ),
       ],
     );
+  }
+
+  Stream<QuerySnapshot> getFlashSaleProducts() {
+    return FirebaseFirestore.instance
+        .collection('products')
+        .where('onsale', isEqualTo: true)
+        .snapshots();
   }
 }

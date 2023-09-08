@@ -126,7 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TabsRow(),
             FlashSale(),
+            SizedBox(
+              height: 10,
+            ),
             Trending(),
+            SizedBox(
+              height: 10,
+            ),
             ProductTabs(),
           ],
         ),

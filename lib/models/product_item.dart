@@ -17,7 +17,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(8),
-      height: isFlashSale ? 500 : 150,
+      height: isFlashSale ? 600 : 200,
       width: isFlashSale ? 120 : MediaQuery.of(context).size.width * 0.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -38,7 +38,10 @@ class ProductItem extends StatelessWidget {
           ),
           Text(
             title,
-            style: Theme.of(context).textTheme.titleSmall,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style:
+                Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 14),
             textAlign: TextAlign.center,
           ),
           Text(

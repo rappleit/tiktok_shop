@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/models/product_grid.dart';
 import 'package:tiktok_shop/models/product_item.dart';
 import 'package:tiktok_shop/screens/products.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductTabs extends StatefulWidget {
   const ProductTabs({super.key});
@@ -12,7 +14,20 @@ class ProductTabs extends StatefulWidget {
 class _ProductTabsState extends State<ProductTabs>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  List<String> tabs = ['Recommended', 'New', 'Beauty', 'Food', 'Household'];
+  List<String> tabs = [
+    'Recommended',
+    'New',
+    'Electronics',
+    'Fragrances',
+    'Skincare',
+    'Groceries',
+    'Home Decor',
+    'Furniture',
+    'Fashion',
+    'Accessories',
+    'Automotive',
+    'Lighting'
+  ];
 
   @override
   void initState() {
@@ -73,27 +88,7 @@ class _ProductTabsState extends State<ProductTabs>
                     );
                   }
                 },
-                child: Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 1',
-                            price: 5.99,
-                          ),
-                          ProductItem(
-                            imageUrl: 'https://picsum.photos/250?image=9',
-                            title: 'Product 2',
-                            price: 5.99,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                child: ProductGridView(category: "electronics"),
               ),
 
               // Content for "New" tab
@@ -109,11 +104,9 @@ class _ProductTabsState extends State<ProductTabs>
                     );
                   }
                 },
-                child: Container(
-                  color: Colors.green,
-                ),
+                child: ProductGridView(category: "skincare"),
               ),
-              // Content for "Beauty" tab
+              // Content for "Electronics" tab
               GestureDetector(
                 onVerticalDragUpdate: (details) {
                   if (details.delta.dy < -5) {
@@ -126,11 +119,9 @@ class _ProductTabsState extends State<ProductTabs>
                     );
                   }
                 },
-                child: Container(
-                  color: Colors.yellow,
-                ),
+                child: ProductGridView(category: "electronics"),
               ),
-              // Content for "Food" tab
+              // Content for "Fragrances" tab
               GestureDetector(
                 onVerticalDragUpdate: (details) {
                   if (details.delta.dy < -5) {
@@ -143,11 +134,9 @@ class _ProductTabsState extends State<ProductTabs>
                     );
                   }
                 },
-                child: Container(
-                  color: Colors.orange,
-                ),
+                child: ProductGridView(category: "fragrances"),
               ),
-              // Content for "House" tab
+              // Content for "Skincare" tab
               GestureDetector(
                 onVerticalDragUpdate: (details) {
                   if (details.delta.dy < -5) {
@@ -160,9 +149,113 @@ class _ProductTabsState extends State<ProductTabs>
                     );
                   }
                 },
-                child: Container(
-                  color: Colors.black,
-                ),
+                child: ProductGridView(category: "skincare"),
+              ),
+              // Content for "Groceries" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "groceries"),
+              ),
+              // Content for "Home Decor" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "home-decor"),
+              ),
+              // Content for "Furniture" tab
+
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "furniture"),
+              ),
+              // Content for "Fashion" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "fashion"),
+              ),
+              // Content for "Accessories" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "accessories"),
+              ),
+              // Content for "Automotive" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "automotive"),
+              ),
+              // Content for "Lighting" tab
+              GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(
+                            selectedTabIndex: _tabController.index),
+                      ),
+                    );
+                  }
+                },
+                child: ProductGridView(category: "lighting"),
               ),
             ],
           ),
