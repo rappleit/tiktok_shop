@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/widgets/bottom_navbar.dart';
+import 'package:tiktok_shop/widgets/home/flash_sale.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
+import 'package:tiktok_shop/widgets/tribes/for_you.dart';
+import 'package:tiktok_shop/widgets/tribes/most_popular.dart';
 import 'package:tiktok_shop/widgets/tribes/post.dart';
+import 'package:tiktok_shop/widgets/tribes/your_tribes.dart';
 
 class TribesScreen extends StatefulWidget {
   const TribesScreen({super.key});
@@ -100,14 +104,7 @@ class _TribesScreenState extends State<TribesScreen>
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.8),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
+                          boxShadow: [],
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
                         ),
@@ -134,14 +131,6 @@ class _TribesScreenState extends State<TribesScreen>
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.8),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
                         borderRadius: BorderRadius.circular(10),
                         color: Color(0xFFEE1D52),
                       ),
@@ -181,7 +170,59 @@ class _TribesScreenState extends State<TribesScreen>
               ],
             ),
           ),
-          Container(color: Colors.green),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          children: [
+                            SizedBox(width: 5),
+                            Expanded(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Search for tribes',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                  border: InputBorder.none,
+                                ),
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xFFEE1D52),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 6),
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              MostPopular(),
+              ForYou(),
+              YourTribes(),
+            ],
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavBar(),
