@@ -4,7 +4,7 @@ class Coins extends StatefulWidget {
   const Coins({super.key});
 
   @override
-  _CoinsState createState() => _CoinsState();
+  State<Coins> createState() => _CoinsState();
 }
 
 class _CoinsState extends State<Coins> {
@@ -16,14 +16,14 @@ class _CoinsState extends State<Coins> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.8),
-            spreadRadius: 2,
-            blurRadius: 5,
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 0,
+            blurRadius: 3,
             offset: Offset(0, 3),
           ),
         ],
       ),
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
       child: Row(
         children: [
           // Image.asset

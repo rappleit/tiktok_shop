@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/widgets/socialhub/activity_feed_preview.dart';
-import 'package:tiktok_shop/widgets/socialhub/event_gallery.dart';
-import 'package:tiktok_shop/widgets/socialhub/notifs.dart';
-import 'package:tiktok_shop/widgets/socialhub/social_tabs.dart';
-import 'package:tiktok_shop/widgets/socialhub/wishlists_preview.dart';
+import 'package:tiktok_shop/widgets/quests/quest.dart';
 
-class SocialHubScreen extends StatelessWidget {
-  const SocialHubScreen({super.key});
+class Quests extends StatelessWidget {
+  const Quests({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +12,7 @@ class SocialHubScreen extends StatelessWidget {
         title: Row(
           children: [
             const Text(
-              'Social Hub',
+              'Quests',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
@@ -47,14 +43,40 @@ class SocialHubScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Column(
-        children: [
-          Notifs(),
-          EventGallery(),
-          SocialTabsRow(),
-          WishlistsPreviewWidget(),
-          ActivityFeedPreviewWidget(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(children: [
+          Quest(
+              name: "Quest Name",
+              description: "Quest Description",
+              progress: 0,
+              daysLeft: 5,
+              reward: 2),
+          Quest(
+            name: "Explorer",
+            description: "Logged in 1 day",
+            progress: 1,
+            daysLeft: 1,
+            reward: 2,
+          ),
+          Quest(
+            name: "Big Hearted",
+            description: "Gift 1 person from their wishlist",
+            progress: 0,
+            reward: 8,
+          ),
+          Quest(
+            name: "Refer-ee",
+            description: "Referred 3 people",
+            progress: 0.3,
+            reward: 5,
+          ),
+          Quest(
+            name: "Green",
+            description: " Recycled 5 pieces of clothing through us",
+            progress: 0.6,
+            reward: 5,
+          ),
+        ]),
       ),
     );
   }

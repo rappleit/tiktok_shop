@@ -84,7 +84,7 @@ class _PostState extends State<Post> {
                     if (widget.isBigger) SizedBox(height: 4),
                     if (widget.isBigger)
                       Text(
-                        '@semipreparedcat',
+                        '@Gnoot',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!

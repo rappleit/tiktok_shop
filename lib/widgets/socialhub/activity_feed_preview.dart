@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/widgets/socialhub/activity_card.dart';
+import 'package:tiktok_shop/models/activity_card.dart';
 
 class ActivityFeedPreviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return (Padding(
+    return Expanded(
+      child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -13,10 +14,7 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
               children: [
                 Text(
                   'Recent Activity',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Spacer(),
                 ElevatedButton(
@@ -30,8 +28,22 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
                 ),
               ],
             ),
-            ActivityCard(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ActivityCard(
+                        content: '@semipreparedcat added to their wishlist!'),
+                    ActivityCard(content: '@asyrafcodes joined Coders United.'),
+                    ActivityCard(
+                        content: '@Gnoot reviewed Uniqlo Airism Tshirt.'),
+                  ],
+                ),
+              ),
+            )
           ],
-        )));
+        ),
+      ),
+    );
   }
 }

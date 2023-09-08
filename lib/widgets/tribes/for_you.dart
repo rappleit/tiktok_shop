@@ -14,7 +14,7 @@ class ForYou extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "For You",
+                  "Favourites",
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ],
@@ -27,26 +27,18 @@ class ForYou extends StatelessWidget {
                   TribeItem(
                     imageUrl: 'https://picsum.photos/250?image=9',
                     name: 'Tribe 1',
-                    isForYou: true,
-                    numFollowing: 3,
                   ),
                   TribeItem(
                     imageUrl: 'https://picsum.photos/250?image=9',
                     name: 'Tribe 2',
-                    isForYou: true,
-                    numFollowing: 2,
                   ),
                   TribeItem(
                     imageUrl: 'https://picsum.photos/250?image=9',
                     name: 'Tribe 3',
-                    isForYou: true,
-                    numFollowing: 2,
                   ),
                   TribeItem(
                     imageUrl: 'https://picsum.photos/250?image=9',
                     name: 'Tribe 4',
-                    isForYou: true,
-                    numFollowing: 1,
                   ),
                 ],
               ),
