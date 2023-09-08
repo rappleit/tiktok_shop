@@ -19,37 +19,39 @@ class MostPopular extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Spacer(),
-                Text(
-                  "See all",
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Colors.grey,
-                      ),
-                )
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle "See more" button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
+                    backgroundColor: Color(0xFFFFB1C5),
+                  ),
+                  child: Text(
+                    'See more',
+                  ),
+                ),
               ],
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 1',
-                  ),
-                  TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 2',
-                  ),
-                  TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 3',
-                  ),
-                  TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 4',
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TribeItem(
+                  imageUrl: 'https://picsum.photos/250?image=9',
+                  name: 'Tribe 1',
+                  numFollowing: 3,
+                ),
+                TribeItem(
+                  imageUrl: 'https://picsum.photos/250?image=9',
+                  name: 'Tribe 2',
+                  numFollowing: 2,
+                ),
+                TribeItem(
+                  imageUrl: 'https://picsum.photos/250?image=9',
+                  name: 'Tribe 3',
+                  numFollowing: 2,
+                ),
+              ],
             ),
           ],
         ),

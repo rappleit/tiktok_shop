@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/screens/seasonal_quest.dart';
 
 class EventGallery extends StatelessWidget {
   final PageController _pageController = PageController(
-    viewportFraction: 0.90,
+    viewportFraction: 1,
   );
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200.0,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: 3, // Number of cards
-        itemBuilder: (BuildContext context, int index) {
-          return EventCard(
-            imagePath: 'assets/socialhub/event-banner-1.png',
-          );
-        },
-        pageSnapping: false, // Disable snapping for smoother effect
-        physics: BouncingScrollPhysics(), // Add a bouncy effect
+    return Padding(
+      padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
+      child: SizedBox(
+        height: 200.0,
+        child: PageView.builder(
+          controller: _pageController,
+          itemCount: 3, // Number of cards
+          itemBuilder: (BuildContext context, int index) {
+            return EventCard(
+              imagePath: 'assets/socialhub/event-banner-1.png',
+            );
+          },
+          pageSnapping: false, // Disable snapping for smoother effect
+          physics: BouncingScrollPhysics(), // Add a bouncy effect
+        ),
       ),
     );
   }
@@ -31,59 +35,64 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 360.0,
-      height: 200.0,
-      margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 16.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SeasonalQuest()),
       ),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment(0.0, -0.3),
-                  colors: [Colors.black.withOpacity(0.6), Colors.transparent],
-                  stops: [0.4, 1.0],
+      child: Container(
+        width: 360.0,
+        height: 200.0,
+        margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+          ),
+        ),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment(0.0, -0.3),
+                    colors: [Colors.black.withOpacity(0.6), Colors.transparent],
+                    stops: [0.4, 1.0],
+                  ),
                 ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'September Challenge: Invite a Friend!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'October Challenge: Spooky Savings!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    '20k participants',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
+                    Text(
+                      '280k participants',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

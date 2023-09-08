@@ -145,26 +145,50 @@ class _TribesScreenState extends State<TribesScreen>
                 ),
                 FilterDropdown(),
                 Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Post(
-                          isBigger: true,
+                  child: Stack(
+                    children: [
+                      SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Post(
+                              isBigger: true,
+                            ),
+                            Post(
+                              isBigger: true,
+                            ),
+                            Post(
+                              isBigger: true,
+                            ),
+                            Post(
+                              isBigger: true,
+                            ),
+                            Post(
+                              isBigger: true,
+                            ),
+                          ],
                         ),
-                        Post(
-                          isBigger: true,
-                        ),
-                        Post(
-                          isBigger: true,
-                        ),
-                        Post(
-                          isBigger: true,
-                        ),
-                        Post(
-                          isBigger: true,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Positioned(
+                          right: 1,
+                          bottom: 1,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              margin: EdgeInsets.only(bottom: 15),
+                              height: 70,
+                              width: 70,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xFFEE1D52),
+                              ),
+                              child: Icon(
+                                Icons.edit,
+                                size: 40,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ))
+                    ],
                   ),
                 )
               ],
@@ -225,7 +249,6 @@ class _TribesScreenState extends State<TribesScreen>
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
