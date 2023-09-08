@@ -38,8 +38,6 @@ class _TabsRowState extends State<TabsRow> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          // _selectedIndex = index;
-          // Once tapped, notifications disappear
           tabItem.hasNotification = false;
         });
         if (tabItem.route != null) {
@@ -53,27 +51,35 @@ class _TabsRowState extends State<TabsRow> {
       },
       child: Stack(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
-            decoration: BoxDecoration(
-              color: _selectedIndex == index ? Color(0xFFEE1D52) : Colors.white,
-              borderRadius: BorderRadius.circular(10),
+          Padding(
+            padding: const EdgeInsets.all(2),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
+              decoration: BoxDecoration(
+                color:
+                    _selectedIndex == index ? Color(0xFFEE1D52) : Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(tabItem.title,
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                      fontSize: 14,
+                      color: _selectedIndex == index
+                          ? Colors.white
+                          : Colors.black)),
             ),
-            child: Text(tabItem.title,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color:
-                        _selectedIndex == index ? Colors.white : Colors.black)),
           ),
           if (tabItem.hasNotification)
-            // Change position of notification dot
             Positioned(
               right: 0,
-              child: Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: Color(0xFFEE1D52), // Notification dot color
-                  shape: BoxShape.circle,
+              child: Padding(
+                padding: const EdgeInsets.all(4.0), // Adjust margin as needed
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFEE1D52),
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             ),
