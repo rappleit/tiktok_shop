@@ -27,8 +27,9 @@ class _CoinsState extends State<Coins> {
       child: Row(
         children: [
           // Image.asset
-          Image.network(
-            'https://picsum.photos/250?image=9',
+          Image.asset(
+            'assets/coin.png',
+            width: 20,
             height: 20,
           ),
           SizedBox(width: 4),

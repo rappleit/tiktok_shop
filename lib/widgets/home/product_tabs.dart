@@ -67,6 +67,14 @@ class _ProductTabsState extends State<ProductTabs>
             indicatorColor: Color(0xFFEE1D52),
             unselectedLabelColor: Colors.grey, // Color for unselected tab label
           ),
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.grey, // Color of the bottom border
+                width: 1.0, // Width of the bottom border
+              ),
+            ),
+          ),
         ),
         SizedBox(height: 8),
         Container(
