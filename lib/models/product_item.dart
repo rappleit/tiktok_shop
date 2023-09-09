@@ -85,11 +85,10 @@ class ProductItem extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Image.network(
-                    imageUrl,
+                  ImageWithRetry(
+                    imageUrl: imageUrl,
                     width: 80,
                     height: 80,
-                    fit: BoxFit.cover,
                   ),
                   Text(
                     title,
@@ -112,5 +111,52 @@ class ProductItem extends StatelessWidget {
                 ],
               ),
             ));
+  }
+}
+
+class ImageWithRetry extends StatefulWidget {
+  final String imageUrl;
+  final double width;
+  final double height;
+
+  ImageWithRetry({
+    required this.imageUrl,
+    this.width = 80,
+    this.height = 80,
+  });
+
+  @override
+  _ImageWithRetryState createState() => _ImageWithRetryState();
+}
+
+class _ImageWithRetryState extends State<ImageWithRetry> {
+  bool _imageFailed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // When tapped, retry loading the image
+        setState(() {
+          _imageFailed = false;
+        });
+      },
+      child: _imageFailed
+          ? Icon(Icons.error) // Display an error icon or message
+          : Image.network(
+              widget.imageUrl,
+              width: widget.width,
+              height: widget.height,
+              fit: BoxFit.cover,
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
+                // Handle image loading errors
+                setState(() {
+                  _imageFailed = true;
+                });
+                return Icon(Icons.error); // Display an error icon or message
+              },
+            ),
+    );
   }
 }

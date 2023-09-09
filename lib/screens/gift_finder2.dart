@@ -69,7 +69,7 @@ class GiftFinder2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Text('Which style would they like?',
+              child: Text('What else would they like?',
                   style: Theme.of(context).textTheme.titleLarge),
             ),
           ),
@@ -77,7 +77,7 @@ class GiftFinder2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GiftFinderItem(
-                imageUrl: 'https://picsum.photos/250?image=9',
+                imageUrl: "assets/socialhub/stylish-icon.png",
                 tag: 'Stylish',
                 onTap: () {
                   addToSelectedTags('Stylish');
@@ -85,7 +85,7 @@ class GiftFinder2 extends StatelessWidget {
                 },
               ),
               GiftFinderItem(
-                imageUrl: 'https://picsum.photos/250?image=9',
+                imageUrl: "assets/socialhub/casual-icon.png",
                 tag: 'Casual',
                 onTap: () {
                   addToSelectedTags('Casual');
@@ -98,7 +98,7 @@ class GiftFinder2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GiftFinderItem(
-                imageUrl: 'https://picsum.photos/250?image=9',
+                imageUrl: "assets/socialhub/artistic-icon.png",
                 tag: 'Artistic',
                 onTap: () {
                   addToSelectedTags('Artistic');
@@ -106,7 +106,7 @@ class GiftFinder2 extends StatelessWidget {
                 },
               ),
               GiftFinderItem(
-                imageUrl: 'https://picsum.photos/250?image=9',
+                imageUrl: "assets/socialhub/practical-icon.png",
                 tag: 'Practical',
                 onTap: () {
                   addToSelectedTags('Practical');

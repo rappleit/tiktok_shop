@@ -19,7 +19,11 @@ class GiftFinderItem extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            CircleAvatar(backgroundImage: NetworkImage(imageUrl), radius: 70),
+            CircleAvatar(
+              backgroundImage: AssetImage(imageUrl),
+              radius: 70,
+              backgroundColor: Colors.white,
+            ),
             Text(
               tag,
               style: Theme.of(context).textTheme.titleSmall,
