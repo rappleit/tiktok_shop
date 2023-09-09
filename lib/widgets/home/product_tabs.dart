@@ -47,228 +47,126 @@ class _ProductTabsState extends State<ProductTabs>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 40,
-          child: TabBar(
-            controller: _tabController,
-            // Enable scrolling if needed
-            isScrollable: true,
-            tabs: tabs
-                .map(
-                  (name) => Tab(
-                    text: name,
-                  ),
-                )
-                .toList(),
-            labelColor: Colors.black, // Color for selected tab label
-            labelStyle: Theme.of(context).textTheme.titleMedium,
-            indicatorColor: Color(0xFFEE1D52),
-            unselectedLabelColor: Colors.grey, // Color for unselected tab label
-          ),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: Colors.grey, // Color of the bottom border
-                width: 1.0, // Width of the bottom border
+    return Expanded(
+      child: Column(
+        children: [
+          Container(
+            height: 40,
+            child: TabBar(
+              controller: _tabController,
+              // Enable scrolling if needed
+              isScrollable: true,
+              tabs: tabs
+                  .map(
+                    (name) => Tab(
+                      text: name,
+                    ),
+                  )
+                  .toList(),
+              labelColor: Colors.black, // Color for selected tab label
+              labelStyle: Theme.of(context).textTheme.titleMedium,
+              indicatorColor: Color(0xFFEE1D52),
+              unselectedLabelColor:
+                  Colors.grey, // Color for unselected tab label
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey, // Color of the bottom border
+                  width: 1.0, // Width of the bottom border
+                ),
               ),
             ),
           ),
-        ),
-        SizedBox(height: 8),
-        Container(
-          height: 170,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: TabBarView(
-            controller: _tabController,
-            children: [
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    // Swipe up detected, open full ProductsScreen
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "electronics"),
-              ),
+          Expanded(
+            child: Container(
+              height: 200,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ProductGridView(
+                    category: "electronics",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
 
-              // Content for "New" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "skincare"),
-              ),
-              // Content for "Electronics" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "electronics"),
-              ),
-              // Content for "Fragrances" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "fragrances"),
-              ),
-              // Content for "Skincare" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "skincare"),
-              ),
-              // Content for "Groceries" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "groceries"),
-              ),
-              // Content for "Home Decor" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "home-decor"),
-              ),
-              // Content for "Furniture" tab
+                  // Content for "New" tab
+                  ProductGridView(
+                    category: "skincare",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
 
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "furniture"),
+                  // Content for "Electronics" tab
+                  ProductGridView(
+                    category: "electronics",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+
+                  // Content for "Fragrances" tab
+                  ProductGridView(
+                    category: "fragrances",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Skincare" tab
+                  ProductGridView(
+                    category: "skincare",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Groceries" tab
+                  ProductGridView(
+                    category: "groceries",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Home Decor" tab
+                  ProductGridView(
+                    category: "home-decor",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Furniture" tab
+                  ProductGridView(
+                    category: "furniture",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Fashion" tab
+                  ProductGridView(
+                    category: "fashion",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Accessories" tab
+
+                  ProductGridView(
+                    category: "accessories",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Automotive" tab
+
+                  ProductGridView(
+                    category: "automotive",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                  // Content for "Lighting" tab
+                  ProductGridView(
+                    category: "lighting",
+                    isForDisplay: true,
+                    selectedTabIndex: _tabController.index,
+                  ),
+                ],
               ),
-              // Content for "Fashion" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "fashion"),
-              ),
-              // Content for "Accessories" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "accessories"),
-              ),
-              // Content for "Automotive" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "automotive"),
-              ),
-              // Content for "Lighting" tab
-              GestureDetector(
-                onVerticalDragUpdate: (details) {
-                  if (details.delta.dy < -5) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductScreen(
-                            selectedTabIndex: _tabController.index),
-                      ),
-                    );
-                  }
-                },
-                child: ProductGridView(category: "lighting"),
-              ),
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

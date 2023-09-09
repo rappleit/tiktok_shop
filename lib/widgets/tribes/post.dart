@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
+import 'package:tiktok_shop/screens/video_posts.dart';
 
 class Post extends StatefulWidget {
   final bool isBigger;
@@ -16,7 +17,23 @@ class Post extends StatefulWidget {
 class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DiscussionThreadPage(
+          Username:'samuelking',
+          Date: '12 June 2023',
+          description:'dasssssssss',
+          videoUrl:'assets/IMG_0069.MOV',
+          score:1233313
+
+        ), //this is where we send data of the tribe
+      ),
+    );
+  },
+  child:Padding(
       padding: EdgeInsets.symmetric(
           horizontal: widget.isBigger ? 0 : 16, vertical: 8),
       child: Container(
@@ -134,6 +151,7 @@ class _PostState extends State<Post> {
           ],
         ),
       ),
+    ),
     );
   }
 }

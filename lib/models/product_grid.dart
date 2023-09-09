@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tiktok_shop/models/product_item.dart';
+import 'package:tiktok_shop/screens/products.dart';
 
 class Product {
   final String imageUrl;
@@ -20,8 +21,14 @@ class Product {
 
 class ProductGridView extends StatelessWidget {
   final String category;
+  final bool isForDisplay;
+  final int selectedTabIndex;
 
-  ProductGridView({required this.category});
+  ProductGridView({
+    required this.category,
+    this.isForDisplay = false,
+    this.selectedTabIndex = 0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +36,11 @@ class ProductGridView extends StatelessWidget {
       stream: FirebaseFirestore.instance
           .collection('products')
           .where('category', isEqualTo: category)
+          .limit(isForDisplay ? 2 : 10)
           .snapshots(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting ||
+            !snapshot.hasData) {
           return CircularProgressIndicator();
         }
 
@@ -45,36 +54,56 @@ class ProductGridView extends StatelessWidget {
                 ))
             .toList();
 
-        return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16.0,
-            mainAxisSpacing: 16.0,
-          ),
-          itemCount: products.length,
-          itemBuilder: (context, index) {
-            final product = products[index];
-            return ProductItemWidget(product: product);
-          },
-        );
+        return isForDisplay
+            ? GestureDetector(
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy < -5) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductScreen(selectedTabIndex: selectedTabIndex),
+                      ),
+                    );
+                  }
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        for (Product product in products)
+                          ProductItem(
+                            imageUrl: product.imageUrl,
+                            title: product.title,
+                            price: product.price,
+                            id: product.id,
+                          ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            : GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                ),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return ProductItem(
+                    imageUrl: product.imageUrl,
+                    title: product.title,
+                    price: product.price,
+                    id: product.id,
+                    isFlashSale: false, // Set this as needed
+                  );
+                },
+              );
       },
-    );
-  }
-}
-
-class ProductItemWidget extends StatelessWidget {
-  final Product product;
-
-  ProductItemWidget({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    return ProductItem(
-      imageUrl: product.imageUrl,
-      title: product.title,
-      price: product.price,
-      id: product.id,
-      isFlashSale: false, // Set this as needed
     );
   }
 }
