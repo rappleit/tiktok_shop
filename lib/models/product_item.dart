@@ -90,14 +90,14 @@ class ProductItem extends StatelessWidget {
                     width: 80,
                     height: 80,
                     fit: BoxFit.cover,
-                     errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-            return Icon(
-              Icons.error_outline,
-              size: 48.0,
-              color: Colors.red,
-            );
-          },
-        );
+                    errorBuilder: (BuildContext context, Object exception,
+                        StackTrace? stackTrace) {
+                      return Icon(
+                        Icons.error_outline,
+                        size: 48.0,
+                        color: Colors.red,
+                      );
+                    },
                   ),
                   Text(
                     title,
@@ -122,5 +122,3 @@ class ProductItem extends StatelessWidget {
             ));
   }
 }
-
-
