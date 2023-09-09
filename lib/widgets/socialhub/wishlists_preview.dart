@@ -27,8 +27,8 @@ class WishlistsPreviewWidget extends StatelessWidget {
                 Expanded(
                   child: WishlistItem(
                       imageUrl: 'assets/placeholders/product1.jpg',
-                      name: "semipreparedcat",
-                      count: 6),
+                      name: "gnoot",
+                      count: 8),
                 ),
                 Expanded(
                   child: WishlistItem(
@@ -39,8 +39,8 @@ class WishlistsPreviewWidget extends StatelessWidget {
                 Expanded(
                   child: WishlistItem(
                       imageUrl: 'assets/placeholders/product1.jpg',
-                      name: "semipreparedcat",
-                      count: 6),
+                      name: "asycodes",
+                      count: 4),
                 ),
               ],
             ),

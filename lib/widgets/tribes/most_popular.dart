@@ -9,7 +9,7 @@ class MostPopular extends StatelessWidget {
     return Container(
       color: Color(0xFFFFB1C5),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: [
             Row(
@@ -37,18 +37,18 @@ class MostPopular extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TribeItem(
-                  imageUrl: 'https://picsum.photos/250?image=9',
-                  name: 'Tribe 1',
+                  imageUrl: 'https://picsum.photos/250?image=4',
+                  name: 'Uniqlo Shirts',
                   numFollowing: 3,
                 ),
                 TribeItem(
-                  imageUrl: 'https://picsum.photos/250?image=9',
-                  name: 'Tribe 2',
+                  imageUrl: 'https://picsum.photos/250?image=2',
+                  name: 'Com Wiz',
                   numFollowing: 2,
                 ),
                 TribeItem(
-                  imageUrl: 'https://picsum.photos/250?image=9',
-                  name: 'Tribe 3',
+                  imageUrl: 'https://picsum.photos/250?image=20',
+                  name: 'Study Gang',
                   numFollowing: 2,
                 ),
               ],

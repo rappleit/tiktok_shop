@@ -46,12 +46,6 @@ class Quests extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Quest(
-              name: "Quest Name",
-              description: "Quest Description",
-              progress: 0,
-              daysLeft: 5,
-              reward: 2),
-          Quest(
             name: "Explorer",
             description: "Logged in 1 day",
             progress: 1,
@@ -60,19 +54,19 @@ class Quests extends StatelessWidget {
           ),
           Quest(
             name: "Big Hearted",
-            description: "Gift 1 person from their wishlist",
+            description: "Gift 1 person something from their wishlist",
             progress: 0,
             reward: 8,
           ),
           Quest(
             name: "Refer-ee",
-            description: "Referred 3 people",
+            description: "Referred and invited 3 friends",
             progress: 0.3,
             reward: 5,
           ),
           Quest(
-            name: "Green",
-            description: " Recycled 5 pieces of clothing through us",
+            name: "The Tribe Insight",
+            description: "Contribute 3 posts to any tribe",
             progress: 0.6,
             reward: 5,
           ),

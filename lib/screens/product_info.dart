@@ -235,7 +235,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       builder: (context) {
                         return Container(
                           padding: EdgeInsets.all(24),
-                          height: MediaQuery.of(context).size.height * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.3,
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

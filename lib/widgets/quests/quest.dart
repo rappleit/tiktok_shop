@@ -41,9 +41,8 @@ class _QuestState extends State<Quest> {
                     color: Color(0xFFEE9A1D),
                   ),
                   clipBehavior: Clip.hardEdge,
-                  child: Image.network(
-                    "https://picsum.photos/250?image=9",
-                    fit: BoxFit.cover,
+                  child: Image.asset(
+                    'assets/socialhub/quest.png',
                   ),
                 ),
                 Expanded(
@@ -109,9 +108,9 @@ class _QuestState extends State<Quest> {
                                           .titleSmall!
                                           .copyWith(color: Colors.white),
                                     ),
-                                    Image.network(
-                                      'https://picsum.photos/250?image=9',
-                                      fit: BoxFit.cover,
+                                    Image.asset(
+                                      'assets/coin.png',
+                                      width: 20,
                                       height: 20,
                                     ),
                                   ],

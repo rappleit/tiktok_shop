@@ -26,20 +26,20 @@ class ForYou extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 1',
+                    imageUrl: 'https://picsum.photos/250?image=38',
+                    name: 'Pastel Lovers',
                   ),
                   TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 2',
+                    imageUrl: 'https://picsum.photos/250?image=44',
+                    name: 'Sea Farers',
                   ),
                   TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 3',
+                    imageUrl: 'https://picsum.photos/250?image=29',
+                    name: 'Outdoor Fans',
                   ),
                   TribeItem(
-                    imageUrl: 'https://picsum.photos/250?image=9',
-                    name: 'Tribe 4',
+                    imageUrl: 'https://picsum.photos/250?image=19',
+                    name: 'Naturists',
                   ),
                 ],
               ),
