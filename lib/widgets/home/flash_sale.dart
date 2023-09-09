@@ -35,6 +35,7 @@ class FlashSale extends StatelessWidget {
                         imageUrl: productData['thumbnail'],
                         title: productData['name'],
                         price: productData['price'].toDouble(),
+                        id: productData['uuid'],
                         isFlashSale: true,
                       );
                     }).toList(),

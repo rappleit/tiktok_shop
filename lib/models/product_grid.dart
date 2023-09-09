@@ -6,12 +6,14 @@ class Product {
   final String imageUrl;
   final String title;
   final double price;
+  final String id;
   final String category;
 
   Product({
     required this.imageUrl,
     required this.title,
     required this.price,
+    required this.id,
     required this.category,
   });
 }
@@ -38,6 +40,7 @@ class ProductGridView extends StatelessWidget {
                   imageUrl: doc['thumbnail'],
                   title: doc['name'],
                   price: doc['price'].toDouble(),
+                  id: doc['uuid'],
                   category: doc['category'],
                 ))
             .toList();
@@ -70,6 +73,7 @@ class ProductItemWidget extends StatelessWidget {
       imageUrl: product.imageUrl,
       title: product.title,
       price: product.price,
+      id: product.id,
       isFlashSale: false, // Set this as needed
     );
   }

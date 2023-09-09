@@ -26,9 +26,9 @@ class BottomNavBar extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.search, color: Colors.black),
+                Icon(Icons.shop, color: Colors.black),
                 Text(
-                  'Discover',
+                  'Shop',
                   style: TextStyle(color: Colors.black),
                 ),
               ],
