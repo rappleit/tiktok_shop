@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/screens/gift_finder1.dart';
-import 'package:tiktok_shop/screens/quests.dart';
-import 'package:tiktok_shop/screens/wishlists.dart';
+import 'package:tiktok_shop/screens/socialhub/gift_finder1.dart';
+import 'package:tiktok_shop/screens/socialhub/quests.dart';
+import 'package:tiktok_shop/screens/socialhub/wishlists.dart';
 
 class SocialTabsRow extends StatelessWidget {
   @override

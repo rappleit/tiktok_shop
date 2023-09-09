@@ -4,6 +4,7 @@ class ActivityCard extends StatelessWidget {
   final String content;
 
   const ActivityCard({
+    super.key,
     required this.content,
   });
 
@@ -22,7 +23,7 @@ class ActivityCard extends StatelessWidget {
               child: Container(
                 width: 41,
                 height: 44,
-                decoration: ShapeDecoration(
+                decoration: const ShapeDecoration(
                   color: Color(0xFF6FD0F1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
@@ -39,10 +40,10 @@ class ActivityCard extends StatelessWidget {
               child: Container(
                 width: 23,
                 height: 23,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.transparent, // Transparent background
                 ),
-                child: Center(
+                child: const Center(
                   child: Icon(
                     Icons.favorite,
                     color: Colors.white, // Change to your desired icon color
@@ -56,7 +57,7 @@ class ActivityCard extends StatelessWidget {
               top: 18,
               child: Text(
                 content,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 12,
                 ),

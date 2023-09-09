@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -18,22 +18,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         toolbarHeight: 20,
         title: Row(
           children: [
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Colors.black,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Colors.black,
               onPressed: () {
                 // Open the drawer
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.grey.withOpacity(0.8),
                                   spreadRadius: 2,
                                   blurRadius: 5,
-                                  offset: Offset(0, 3),
+                                  offset: const Offset(0, 3),
                                 ),
                               ],
                               borderRadius: BorderRadius.circular(10),
@@ -84,13 +84,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Row(
                               children: [
                                 // Spacing before "Search for items"
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Expanded(
                                   child: TextField(
                                     decoration: InputDecoration(
                                         hintText: 'Search for items',
                                         // Placeholder text
-                                        hintStyle: TextStyle(
+                                        hintStyle: const TextStyle(
                                             color: Colors.grey,
                                             fontWeight: FontWeight.normal,
                                             fontSize: 16),
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     .withOpacity(0.8),
                                                 spreadRadius: 2,
                                                 blurRadius: 5,
-                                                offset: Offset(0, 3),
+                                                offset: const Offset(0, 3),
                                               ),
                                             ],
                                             borderRadius:
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 12, horizontal: 6),
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.search,
                                             color: Colors.white,
                                           ),
@@ -120,15 +120,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                     // Text written inside
 
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(width: 16),
-                        Coins(),
+                        const SizedBox(width: 16),
+                        const Coins(),
                       ],
                     ),
                   ),
@@ -136,19 +136,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          TabsRow(),
-          FlashSale(),
-          SizedBox(
+          const TabsRow(),
+          const FlashSale(),
+          const SizedBox(
             height: 10,
           ),
-          Trending(),
-          SizedBox(
+          const Trending(),
+          const SizedBox(
             height: 10,
           ),
-          ProductTabs(),
+          const ProductTabs(),
         ],
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

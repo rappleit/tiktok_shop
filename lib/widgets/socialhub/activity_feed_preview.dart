@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/activity_card.dart';
+import 'package:tiktok_shop/models/socialhub/activity_card.dart';
 
 class ActivityFeedPreviewWidget extends StatelessWidget {
+  const ActivityFeedPreviewWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -23,7 +25,7 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
+            const Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [

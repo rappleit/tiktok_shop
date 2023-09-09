@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tiktok_shop/screens/auth.dart';
-import 'package:tiktok_shop/screens/home.dart';
+import 'package:tiktok_shop/screens/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tiktok_shop/screens/splash.dart';
@@ -54,7 +54,7 @@ class App extends StatelessWidget {
                   color: kColorScheme.onSecondaryContainer,
                   fontSize: 24),
             ),
-        iconTheme: IconThemeData().copyWith(color: kColorScheme.primary),
+        iconTheme: const IconThemeData().copyWith(color: kColorScheme.primary),
       ),
       // Default theme
       themeMode: ThemeMode.system,

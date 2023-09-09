@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/models/product_grid.dart';
-import 'package:tiktok_shop/screens/fulfil_wishlist_selection.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tiktok_shop/screens/socialhub/fulfil_wishlist_selection.dart';
 
 class Wishlist extends StatelessWidget {
   final String name;
@@ -15,7 +16,7 @@ class Wishlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -24,8 +25,8 @@ class Wishlist extends StatelessWidget {
                 "$name's Wishlist",
                 // Multi-lined appbar
                 maxLines: 4,
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
             Spacer(),
@@ -37,7 +38,7 @@ class Wishlist extends StatelessWidget {
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -48,12 +49,12 @@ class Wishlist extends StatelessWidget {
         ),
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: Column(
@@ -64,22 +65,37 @@ class Wishlist extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Color(0xFFEE1D52),
+                color: const Color(0xFFEE1D52),
               ),
               child: TextButton(
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FulfilWishlistSelection(
-                      name: name,
-                    ),
-                  ),
-                ),
+                onPressed: () {
+                  var userDoc = FirebaseFirestore.instance
+                      .collection('user')
+                      .where("username", isEqualTo: name);
+                  userDoc.get().then(
+                    (doc) {
+                      if (doc.docs.isNotEmpty) {
+                        var wishlistData = doc.docs.first['wishlist'];
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FulfilWishlistSelection(
+                              name: name,
+                              products: wishlistData.entries.toList(),
+                            ),
+                          ),
+                        );
+                      }
+                      ;
+                    },
+                  );
+                },
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     "Fulfill $name's Wishlist!",
                     style: Theme.of(context)

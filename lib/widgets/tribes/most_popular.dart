@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/tribe_item.dart';
+import 'package:tiktok_shop/models/tribes/tribe_item.dart';
 
 class MostPopular extends StatelessWidget {
   const MostPopular({super.key});
@@ -7,7 +7,7 @@ class MostPopular extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFFFB1C5),
+      color: const Color(0xFFFFB1C5),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -18,22 +18,22 @@ class MostPopular extends StatelessWidget {
                   "Most Popular",
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-                Spacer(),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () {
                     // Handle "See more" button press
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0.0,
-                    backgroundColor: Color(0xFFFFB1C5),
+                    backgroundColor: const Color(0xFFFFB1C5),
                   ),
-                  child: Text(
+                  child: const Text(
                     'See more',
                   ),
                 ),
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TribeItem(

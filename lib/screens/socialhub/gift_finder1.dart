@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/gift_finder_item.dart';
-import 'package:tiktok_shop/screens/gift_finder2.dart';
+import 'package:tiktok_shop/models/socialhub/gift_finder_item.dart';
+import 'package:tiktok_shop/screens/socialhub/gift_finder2.dart';
 
 class GiftFinder1 extends StatelessWidget {
   const GiftFinder1({super.key});
@@ -32,16 +32,16 @@ class GiftFinder1 extends StatelessWidget {
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.menu,
               ),
               color: Theme.of(context).iconTheme.color,
@@ -57,7 +57,7 @@ class GiftFinder1 extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           color: Theme.of(context).iconTheme.color,
         ),
       ),

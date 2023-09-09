@@ -6,6 +6,7 @@ class GiftFinderItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const GiftFinderItem({
+    super.key,
     required this.imageUrl,
     required this.tag,
     required this.onTap,

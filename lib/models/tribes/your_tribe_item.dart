@@ -6,6 +6,7 @@ class YourTribeItem extends StatelessWidget {
   final int subscriberCount;
 
   const YourTribeItem({
+    super.key,
     required this.imageUrl,
     required this.name,
     required this.subscriberCount,
@@ -14,13 +15,13 @@ class YourTribeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 2, 12, 0),
+      margin: const EdgeInsets.fromLTRB(0, 2, 12, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
       ),
       child: Container(
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -31,7 +32,7 @@ class YourTribeItem extends StatelessWidget {
               height: 30,
               fit: BoxFit.cover,
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Text(
@@ -39,13 +40,13 @@ class YourTribeItem extends StatelessWidget {
               style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               formatNumber(subscriberCount),
               style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.center,
             ),
-            Icon(Icons.person)
+            const Icon(Icons.person)
           ],
         ),
       ),

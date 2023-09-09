@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/widgets/bottom_navbar.dart';
-import 'package:tiktok_shop/widgets/home/flash_sale.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
 import 'package:tiktok_shop/widgets/tribes/favourites.dart';
 import 'package:tiktok_shop/widgets/tribes/most_popular.dart';
@@ -51,7 +49,7 @@ class _TribesScreenState extends State<TribesScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -60,16 +58,16 @@ class _TribesScreenState extends State<TribesScreen>
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -84,11 +82,11 @@ class _TribesScreenState extends State<TribesScreen>
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         bottom: TabBar(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
           controller: _tabController,
@@ -101,7 +99,7 @@ class _TribesScreenState extends State<TribesScreen>
               .toList(),
           labelColor: Colors.black,
           labelStyle: Theme.of(context).textTheme.titleMedium,
-          indicatorColor: Color(0xFFEE1D52),
+          indicatorColor: const Color(0xFFEE1D52),
           unselectedLabelColor: Colors.grey,
         ),
       ),
@@ -122,7 +120,7 @@ class _TribesScreenState extends State<TribesScreen>
                           color: Colors.white,
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
+                        child: const Row(
                           children: [
                             SizedBox(width: 5),
                             Expanded(
@@ -145,11 +143,11 @@ class _TribesScreenState extends State<TribesScreen>
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFEE1D52),
+                        color: const Color(0xFFEE1D52),
                       ),
                       padding: const EdgeInsets.symmetric(
                           vertical: 12, horizontal: 6),
-                      child: Icon(
+                      child: const Icon(
                         Icons.search,
                         color: Colors.white,
                       ),
@@ -186,7 +184,7 @@ class _TribesScreenState extends State<TribesScreen>
                 Expanded(
                   child: Stack(
                     children: [
-                      SingleChildScrollView(
+                      const SingleChildScrollView(
                         child: Column(
                           children: [
                             Post(
@@ -216,11 +214,11 @@ class _TribesScreenState extends State<TribesScreen>
                               margin: EdgeInsets.only(bottom: 15),
                               height: 70,
                               width: 70,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Color(0xFFEE1D52),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.edit,
                                 size: 40,
                                 color: Colors.white,
@@ -246,7 +244,7 @@ class _TribesScreenState extends State<TribesScreen>
                           color: Colors.white,
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
+                        child: const Row(
                           children: [
                             SizedBox(width: 5),
                             Expanded(
@@ -269,11 +267,11 @@ class _TribesScreenState extends State<TribesScreen>
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFEE1D52),
+                        color: const Color(0xFFEE1D52),
                       ),
                       padding: const EdgeInsets.symmetric(
                           vertical: 12, horizontal: 6),
-                      child: Icon(
+                      child: const Icon(
                         Icons.search,
                         color: Colors.white,
                       ),
@@ -281,9 +279,9 @@ class _TribesScreenState extends State<TribesScreen>
                   ],
                 ),
               ),
-              MostPopular(),
-              ForYou(),
-              YourTribes(),
+              const MostPopular(),
+              const ForYou(),
+              const YourTribes(),
             ],
           ),
         ],

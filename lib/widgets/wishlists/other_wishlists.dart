@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/wishlist_item.dart';
+import 'package:tiktok_shop/models/socialhub/wishlist_item.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
 
 class OtherWishlists extends StatefulWidget {
@@ -30,14 +30,14 @@ class _OtherWishlistsState extends State<OtherWishlists> {
                       selectedOthersWishlistType = value;
                     });
                   }),
-              Spacer(),
+              const Spacer(),
               Text(
                 "Other Wishlists",
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],
           ),
-          Expanded(
+          const Expanded(
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Column(

@@ -24,9 +24,9 @@ class FlashSale extends StatelessWidget {
               final products = snapshot.data?.docs ?? [];
               return Container(
                 height: 165,
-                color: Color(0xFFFFB1C5),
+                color: const Color(0xFFFFB1C5),
                 child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: products.map(
@@ -46,7 +46,7 @@ class FlashSale extends StatelessWidget {
                 ),
               );
             } else {
-              return CircularProgressIndicator(); // Display a loading indicator while fetching data
+              return const CircularProgressIndicator(); // Display a loading indicator while fetching data
             }
           },
         ),

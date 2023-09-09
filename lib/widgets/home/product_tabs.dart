@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/models/product_grid.dart';
-import 'package:tiktok_shop/models/product_item.dart';
-import 'package:tiktok_shop/screens/products.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductTabs extends StatefulWidget {
   const ProductTabs({super.key});
 
   @override
-  _ProductTabsState createState() => _ProductTabsState();
+  State<ProductTabs> createState() => _ProductTabsState();
 }
 
 class _ProductTabsState extends State<ProductTabs>
@@ -52,6 +49,14 @@ class _ProductTabsState extends State<ProductTabs>
         children: [
           Container(
             height: 40,
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey, // Color of the bottom border
+                  width: 1.0, // Width of the bottom border
+                ),
+              ),
+            ),
             child: TabBar(
               controller: _tabController,
               // Enable scrolling if needed
@@ -68,14 +73,6 @@ class _ProductTabsState extends State<ProductTabs>
               indicatorColor: Color(0xFFEE1D52),
               unselectedLabelColor:
                   Colors.grey, // Color for unselected tab label
-            ),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.grey, // Color of the bottom border
-                  width: 1.0, // Width of the bottom border
-                ),
-              ),
             ),
           ),
           Expanded(

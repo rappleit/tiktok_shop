@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/tab_item.dart';
-import 'package:tiktok_shop/screens/socialhub.dart';
-import 'package:tiktok_shop/screens/tribes.dart';
+import 'package:tiktok_shop/models/home/tab_item.dart';
+import 'package:tiktok_shop/screens/socialhub/socialhub.dart';
+import 'package:tiktok_shop/screens/tribes/tribes.dart';
 
 class TabsRow extends StatefulWidget {
   const TabsRow({super.key});
   @override
-  _TabsRowState createState() => _TabsRowState();
+  State<TabsRow> createState() => _TabsRowState();
 }
 
 class _TabsRowState extends State<TabsRow> {
-  int _selectedIndex = 0;
+  final _selectedIndex = 0;
 
   List<TabItem> tabItems = [
     TabItem(title: 'For You', hasNotification: false),
@@ -56,8 +56,9 @@ class _TabsRowState extends State<TabsRow> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
               decoration: BoxDecoration(
-                color:
-                    _selectedIndex == index ? Color(0xFFEE1D52) : Colors.white,
+                color: _selectedIndex == index
+                    ? const Color(0xFFEE1D52)
+                    : Colors.white,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(tabItem.title,
@@ -76,7 +77,7 @@ class _TabsRowState extends State<TabsRow> {
                 child: Container(
                   width: 10,
                   height: 10,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFEE1D52),
                     shape: BoxShape.circle,
                   ),
@@ -91,9 +92,9 @@ class _TabsRowState extends State<TabsRow> {
   Widget _buildRoute(TabRoute route) {
     switch (route) {
       case TabRoute.tribes:
-        return TribesScreen();
+        return const TribesScreen();
       case TabRoute.socialHub:
-        return SocialHubScreen();
+        return const SocialHubScreen();
       default:
         throw Exception("Invalid route");
     }

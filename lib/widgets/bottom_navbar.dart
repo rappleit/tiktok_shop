@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -10,7 +12,7 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
+            const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
@@ -23,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
+            const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.shop, color: Colors.black),
@@ -46,7 +48,7 @@ class BottomNavBar extends StatelessWidget {
                 },
               ),
             ),
-            Column(
+            const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
@@ -59,7 +61,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
+            const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/widgets/quests/quest.dart';
 
 class SeasonalQuest extends StatelessWidget {
   const SeasonalQuest({super.key});
@@ -25,7 +24,7 @@ class SeasonalQuest extends StatelessWidget {
         toolbarHeight: MediaQuery.of(context).size.height * 0.30,
       ),
       body: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,7 +32,7 @@ class SeasonalQuest extends StatelessWidget {
               '7 days left',
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               'Spooky Savings',
               style: Theme.of(context)
@@ -41,7 +40,7 @@ class SeasonalQuest extends StatelessWidget {
                   .titleLarge!
                   .copyWith(fontSize: 30),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               'Embrace the Halloween spirit and watch your savings grow as you complete these eerie tasks',
               style: Theme.of(context)
@@ -49,12 +48,12 @@ class SeasonalQuest extends StatelessWidget {
                   .titleSmall!
                   .copyWith(color: Colors.grey),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: LinearProgressIndicator(
                       value: 0.87,
                       backgroundColor: Colors.grey,
@@ -62,7 +61,7 @@ class SeasonalQuest extends StatelessWidget {
                           AlwaysStoppedAnimation<Color>(Color(0xFFEE1D52)),
                     ),
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     '87%',
                     style: Theme.of(context)
@@ -73,7 +72,7 @@ class SeasonalQuest extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               'Details',
               style: Theme.of(context).textTheme.titleMedium,
@@ -84,8 +83,8 @@ class SeasonalQuest extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Row(
                     children: [
-                      Icon(Icons.local_mall),
-                      SizedBox(width: 16.0),
+                      const Icon(Icons.local_mall),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: Text(
                           '1. Find and purchase at least 3 Halloween-themed products with a total discount of 30% or more.\n\n2. Share a video or photo of yourself in your homemade costume!',
@@ -106,8 +105,8 @@ class SeasonalQuest extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_month),
-                      SizedBox(width: 16.0),
+                      const Icon(Icons.calendar_month),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: Text(
                           'October 1-31',
@@ -128,8 +127,8 @@ class SeasonalQuest extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Row(
                     children: [
-                      Icon(Icons.people),
-                      SizedBox(width: 16.0),
+                      const Icon(Icons.people),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: Text(
                           '280336 Participants',
@@ -154,7 +153,7 @@ class SeasonalQuest extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .titleSmall!
-                          .copyWith(color: Color(0xFFEE1D52)),
+                          .copyWith(color: const Color(0xFFEE1D52)),
                     ),
                   ),
                 ),

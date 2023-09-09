@@ -7,7 +7,7 @@ class Quests extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -16,16 +16,16 @@ class Quests extends StatelessWidget {
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -35,15 +35,15 @@ class Quests extends StatelessWidget {
           ],
         ),
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(children: [
           Quest(
             name: "Explorer",

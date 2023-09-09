@@ -32,7 +32,7 @@ class _MyWishlistState extends State<MyWishlist> {
                     selectedMyWishlistType = value;
                   });
                 }),
-            Spacer(),
+            const Spacer(),
             Column(
               children: [
                 Text(
@@ -43,7 +43,7 @@ class _MyWishlistState extends State<MyWishlist> {
                   onPressed: () {
                     // Handle "See more" button press
                   },
-                  child: Text(
+                  child: const Text(
                     'See all',
                   ),
                 ),
@@ -52,11 +52,11 @@ class _MyWishlistState extends State<MyWishlist> {
           ],
         ),
         Container(
-          margin: EdgeInsets.only(bottom: 16),
-          padding: EdgeInsets.all(8),
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Color(0xFFFFB1C5),
+            color: const Color(0xFFFFB1C5),
           ),
           height: 200,
           child: ProductGridView(

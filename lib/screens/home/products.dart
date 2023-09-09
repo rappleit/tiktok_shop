@@ -46,17 +46,17 @@ class _ProductScreenState extends State<ProductScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         toolbarHeight: 40,
         // Change Back button color
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
         title: Row(
           children: [
-            Spacer(),
+            const Spacer(),
             IconButton(
               icon: Icon(Icons.shopping_cart),
               color: Colors.black,
@@ -65,7 +65,7 @@ class _ProductScreenState extends State<ProductScreen>
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Colors.black,
               onPressed: () {
                 // Open the drawer
@@ -94,7 +94,7 @@ class _ProductScreenState extends State<ProductScreen>
               unselectedLabelColor: Colors.grey,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: Container(
               height: 300,

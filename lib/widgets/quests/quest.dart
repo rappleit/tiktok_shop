@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 
 class Quest extends StatefulWidget {
   final String name;
@@ -27,7 +26,7 @@ class _QuestState extends State<Quest> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -38,7 +37,7 @@ class _QuestState extends State<Quest> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xFFEE9A1D),
+                    color: const Color(0xFFEE9A1D),
                   ),
                   clipBehavior: Clip.hardEdge,
                   child: Image.asset(
@@ -59,7 +58,7 @@ class _QuestState extends State<Quest> {
                               .titleMedium!
                               .copyWith(fontSize: 18),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           widget.description,
                           style: TextStyle(
@@ -71,12 +70,12 @@ class _QuestState extends State<Quest> {
                                   .titleSmall!
                                   .fontFamily),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         LinearProgressIndicator(
                           value: widget.progress,
                           backgroundColor: Colors.grey,
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Color(0xFFEE1D52)),
+                          valueColor: const AlwaysStoppedAnimation<Color>(
+                              Color(0xFFEE1D52)),
                         ),
                         Row(
                           children: [
@@ -88,7 +87,7 @@ class _QuestState extends State<Quest> {
                                     .titleSmall!
                                     .copyWith(color: Colors.black),
                               ),
-                            Spacer(),
+                            const Spacer(),
                             TextButton(
                               onPressed: widget.progress == 1 ? () {} : null,
                               child: Container(
@@ -96,7 +95,7 @@ class _QuestState extends State<Quest> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: widget.progress == 1
-                                      ? Color(0xFFEE1D52)
+                                      ? const Color(0xFFEE1D52)
                                       : Colors.grey,
                                 ),
                                 child: Row(
@@ -123,7 +122,7 @@ class _QuestState extends State<Quest> {
                     ),
                   ),
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_right_outlined,
                   color: Colors.grey,
                   size: 30,
@@ -133,7 +132,7 @@ class _QuestState extends State<Quest> {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 16),
+          margin: const EdgeInsets.symmetric(horizontal: 16),
           height: 1,
           color: Colors.grey,
         )

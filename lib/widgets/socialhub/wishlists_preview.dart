@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/wishlist_item.dart';
+import 'package:tiktok_shop/models/socialhub/wishlist_item.dart';
 
 class WishlistsPreviewWidget extends StatelessWidget {
   @override
@@ -18,7 +18,7 @@ class WishlistsPreviewWidget extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
+        const Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
           child: SizedBox(
             height: 140,
@@ -27,7 +27,7 @@ class WishlistsPreviewWidget extends StatelessWidget {
                 Expanded(
                   child: WishlistItem(
                       imageUrl: 'assets/placeholders/product1.jpg',
-                      name: "gnoot",
+                      name: "Gnoot",
                       count: 8),
                 ),
                 Expanded(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
-import 'package:tiktok_shop/screens/video_posts.dart';
+import 'package:tiktok_shop/screens/tribes/video_posts.dart';
 
 class Post extends StatefulWidget {
   final bool isBigger;
@@ -11,7 +11,7 @@ class Post extends StatefulWidget {
   });
 
   @override
-  _PostState createState() => _PostState();
+  State<Post> createState() => _PostState();
 }
 
 class _PostState extends State<Post> {
@@ -22,7 +22,7 @@ class _PostState extends State<Post> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DiscussionThreadPage(
+            builder: (context) => const DiscussionThreadPage(
                 Username: 'samuelking',
                 Date: '12 June 2023',
                 description: 'dasssssssss',
@@ -45,7 +45,7 @@ class _PostState extends State<Post> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFEE9A1D),
+                  color: const Color(0xFFEE9A1D),
                 ),
                 child: Padding(
                   padding:
@@ -89,7 +89,7 @@ class _PostState extends State<Post> {
                                 .titleSmall!
                                 .fontFamily),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         'Uniqlo Airism Tshirt Review',
                         style: Theme.of(context)
@@ -97,7 +97,7 @@ class _PostState extends State<Post> {
                             .titleMedium!
                             .copyWith(fontSize: 18),
                       ),
-                      if (widget.isBigger) SizedBox(height: 4),
+                      if (widget.isBigger) const SizedBox(height: 4),
                       if (widget.isBigger)
                         Text(
                           '@Gnoot',
@@ -130,7 +130,7 @@ class _PostState extends State<Post> {
                                             .titleSmall!
                                             .fontFamily),
                                   ),
-                                  Icon(Icons.share, size: 20)
+                                  const Icon(Icons.share, size: 20)
                                 ],
                               ),
                             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/tribe_item.dart';
+import 'package:tiktok_shop/models/tribes/tribe_item.dart';
 
 class ForYou extends StatelessWidget {
   const ForYou({super.key});
@@ -19,7 +19,7 @@ class ForYou extends StatelessWidget {
                 ),
               ],
             ),
-            SingleChildScrollView(
+            const SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/screens/wishlist.dart';
+import 'package:tiktok_shop/screens/socialhub/wishlist.dart';
 
 class WishlistItem extends StatelessWidget {
   final String imageUrl;
@@ -8,6 +8,7 @@ class WishlistItem extends StatelessWidget {
   final bool isBigger;
 
   const WishlistItem({
+    super.key,
     required this.imageUrl,
     required this.name,
     required this.count,
@@ -24,7 +25,9 @@ class WishlistItem extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: isBigger ? EdgeInsets.only(top: 16) : EdgeInsets.all(4.0),
+        padding: isBigger
+            ? const EdgeInsets.only(top: 16)
+            : const EdgeInsets.all(4.0),
         child: Container(
           width: isBigger ? 170 : 150,
           height: 120,
@@ -49,7 +52,7 @@ class WishlistItem extends StatelessWidget {
                     child: Text(
                       "@$name's Wishlist",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14.0,
@@ -65,7 +68,7 @@ class WishlistItem extends StatelessWidget {
                     Container(
                       width: 30,
                       height: 30,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFEE1D52),
                         shape: BoxShape.circle,
                       ),

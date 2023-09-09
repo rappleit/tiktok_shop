@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/gift_finder_item.dart';
-import 'package:tiktok_shop/screens/gift_finder3.dart';
+import 'package:tiktok_shop/models/socialhub/gift_finder_item.dart';
+import 'package:tiktok_shop/screens/socialhub/gift_finder3.dart';
 
 class GiftFinder2 extends StatelessWidget {
   final List<String> selectedTags;
@@ -25,7 +25,7 @@ class GiftFinder2 extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -34,16 +34,16 @@ class GiftFinder2 extends StatelessWidget {
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -53,7 +53,7 @@ class GiftFinder2 extends StatelessWidget {
           ],
         ),
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

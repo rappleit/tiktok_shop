@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/your_tribe_item.dart';
-import 'package:tiktok_shop/screens/seasonal_quest.dart';
+import 'package:tiktok_shop/models/tribes/your_tribe_item.dart';
+import 'package:tiktok_shop/screens/socialhub/seasonal_quest.dart';
 
 class EventGallery extends StatelessWidget {
   @override

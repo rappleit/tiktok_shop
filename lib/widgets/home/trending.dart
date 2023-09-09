@@ -16,7 +16,7 @@ class Trending extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
-        Post()
+        const Post()
       ],
     );
   }

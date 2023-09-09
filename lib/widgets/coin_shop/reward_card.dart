@@ -7,8 +7,9 @@ class RewardCard extends StatelessWidget {
   final String id;
   final IconData icon;
 
-  RewardCard(
-      {required this.rewardName,
+  const RewardCard(
+      {super.key,
+      required this.rewardName,
       required this.color,
       required this.coinsNeeded,
       required this.id,
@@ -17,8 +18,8 @@ class RewardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      padding: EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(16),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -28,7 +29,7 @@ class RewardCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 0,
             blurRadius: 3,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -44,22 +45,22 @@ class RewardCard extends StatelessWidget {
               color: color,
               size: 36,
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             // Reward Name
             Text(
               rewardName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Text(
                   '$coinsNeeded',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,

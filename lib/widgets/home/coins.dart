@@ -54,7 +54,7 @@ class _CoinsState extends State<Coins> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => CoinScreen(),
+              builder: (context) => const CoinScreen(),
             ),
           );
         },
@@ -67,7 +67,7 @@ class _CoinsState extends State<Coins> {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 0,
                 blurRadius: 3,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -80,7 +80,7 @@ class _CoinsState extends State<Coins> {
                 width: 20,
                 height: 20,
               ),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text(
                 '$coins',
                 style: Theme.of(context).textTheme.titleSmall,

@@ -8,7 +8,7 @@ class ProductInfoScreen extends StatefulWidget {
   final double price;
   final String id;
 
-  ProductInfoScreen(
+  const ProductInfoScreen(
       {super.key,
       required this.imageUrl,
       required this.title,
@@ -41,7 +41,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
     var productData;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -50,16 +50,16 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -69,12 +69,12 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
           ],
         ),
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(
@@ -82,7 +82,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
           future: getProductData(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
             } else {
@@ -106,7 +106,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Column(
@@ -115,7 +115,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                           Text(
                               _capitalizeFirstLetter(
                                   productData?['brand'] ?? ''),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Color(0xFFEE1D52),
                               )),
@@ -123,7 +123,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                             fit: BoxFit.scaleDown,
                             child: Text(
                               title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -132,7 +132,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                           SizedBox(height: 12.0),
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.star,
                                 color: Color(0xFFEE1D52),
                                 size: 24.0,
@@ -140,33 +140,33 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               SizedBox(width: 6.0),
                               Text(
                                 '${productData?['rating'] ?? 'N/A'} / 5',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(width: 6.0),
-                              Text(
+                              const SizedBox(width: 6.0),
+                              const Text(
                                 '|',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 16,
                                 ),
                               ),
-                              SizedBox(width: 6.0),
+                              const SizedBox(width: 6.0),
                               Text(
                                 '${productData?['sold'] ?? 'N/A'} sold',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Text(
                             productData?['description'] ?? '',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                             ),
                           )
@@ -181,9 +181,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Color(0xFFFFFFFF),
+        color: const Color(0xFFFFFFFF),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
           child: Container(
             height: 50,
             child: Row(
@@ -191,7 +191,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Color(0xFFEE1D52), // Set the border color
@@ -202,8 +203,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                   child: Center(
                     child: Text(
                       '\$ ${price.toStringAsFixed(2)}',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -214,9 +215,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       color: Color(0xFFEE1D52),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 0),
-                    child: Center(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 0),
+                    child: const Center(
                       child: Text(
                         "Add to Cart",
                         style: TextStyle(
@@ -234,7 +235,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       context: context,
                       builder: (context) {
                         return Container(
-                          padding: EdgeInsets.all(24),
+                          padding: const EdgeInsets.all(24),
                           height: MediaQuery.of(context).size.height * 0.3,
                           child: Center(
                             child: Column(
@@ -242,7 +243,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 TextButton(
-                                  onPressed: () async {
+                                  onPressed: () {
                                     var userDoc = FirebaseFirestore.instance
                                         .collection('user')
                                         .doc(FirebaseAuth
@@ -279,7 +280,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                         content: Text(isAddedToWishlist
                                             ? 'Removed from wishlist!'
                                             : 'Added to wishlist!'),
-                                        duration: Duration(seconds: 3),
+                                        duration: const Duration(seconds: 3),
                                         action: SnackBarAction(
                                           label: 'Undo',
                                           onPressed: () {
@@ -319,9 +320,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.favorite,
+                                      const Icon(Icons.favorite,
                                           color: Color(0xFFEE1D52), size: 32.0),
-                                      SizedBox(width: 18),
+                                      const SizedBox(width: 18),
                                       isAddedToWishlist
                                           ? Text(
                                               "Remove from wishlist",
@@ -338,16 +339,16 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 18),
+                                const SizedBox(height: 18),
                                 TextButton(
                                   onPressed: () {},
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.card_giftcard,
+                                      const Icon(Icons.card_giftcard,
                                           color: Color(0xFFEE1D52), size: 32.0),
-                                      SizedBox(width: 18),
+                                      const SizedBox(width: 18),
                                       Text(
                                         "Gift to friend",
                                         style: Theme.of(context)
@@ -365,11 +366,11 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                       padding: EdgeInsets.zero,
                       backgroundColor: Colors.white),
                   child: Container(
-                    child: Icon(
+                    child: const Icon(
                       Icons.more_horiz,
                       color: Colors.black,
                       size: 24.0,

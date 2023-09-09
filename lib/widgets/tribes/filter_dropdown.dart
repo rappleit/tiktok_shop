@@ -19,14 +19,14 @@ class _FilterDropdownState extends State<FilterDropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
       ),
       child: DropdownButton(
         value: widget.selectedValue,
-        icon: Icon(Icons.arrow_drop_down),
+        icon: const Icon(Icons.arrow_drop_down),
         onChanged: (value) => widget.onChanged(value!.toString()),
         items: widget.options.map((option) {
           return DropdownMenuItem(
@@ -38,7 +38,7 @@ class _FilterDropdownState extends State<FilterDropdown> {
                   option['icon'],
                   size: 20,
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   option['label'],
                   style: Theme.of(context).textTheme.titleSmall, // Adjust style

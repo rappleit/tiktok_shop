@@ -48,7 +48,7 @@ class _CoinScreenState extends State<CoinScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
       appBar: AppBar(
         title: Row(
           children: [
@@ -57,16 +57,16 @@ class _CoinScreenState extends State<CoinScreen> {
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Implement shopping cart
               },
             ),
             IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               color: Theme.of(context).iconTheme.color,
               onPressed: () {
                 // Open the drawer
@@ -81,19 +81,19 @@ class _CoinScreenState extends State<CoinScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 18, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 0),
             color: Colors.white,
             height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("My Coins",
+                const Text("My Coins",
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 Container(
@@ -123,7 +123,7 @@ class _CoinScreenState extends State<CoinScreen> {
               ],
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(vertical: 32, horizontal: 0),
             child: Column(
               children: [

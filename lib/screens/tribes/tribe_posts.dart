@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/widgets/tribe_posts/header_tribe.dart';
+import 'package:tiktok_shop/widgets/tribes/header_tribe_post.dart';
 import 'package:tiktok_shop/widgets/tribes/post.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
 
@@ -27,20 +27,20 @@ class _TribePostsState extends State<TribePosts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(237, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(237, 255, 255, 255),
         appBar: AppBar(
           title: Row(
             children: [
-              Spacer(),
+              const Spacer(),
               IconButton(
-                icon: Icon(Icons.shopping_cart),
+                icon: const Icon(Icons.shopping_cart),
                 color: Theme.of(context).iconTheme.color,
                 onPressed: () {
                   // Implement shopping cart
                 },
               ),
               IconButton(
-                icon: Icon(Icons.menu),
+                icon: const Icon(Icons.menu),
                 color: Theme.of(context).iconTheme.color,
                 onPressed: () {
                   // Open the drawer
@@ -50,12 +50,12 @@ class _TribePostsState extends State<TribePosts> {
             ],
           ),
           backgroundColor: Colors.transparent,
-          iconTheme: IconThemeData(),
+          iconTheme: const IconThemeData(),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           actions: [
             PopupMenuButton<String>(
@@ -70,15 +70,15 @@ class _TribePostsState extends State<TribePosts> {
                 }
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'Hot',
                   child: Text('Hot'),
                 ),
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'Trending',
                   child: Text('Trending'),
                 ),
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'New',
                   child: Text('New'),
                 ),
@@ -90,7 +90,7 @@ class _TribePostsState extends State<TribePosts> {
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
             children: [
-              HeaderTribe(
+              const HeaderTribePost(
                 title: 'UniqloShirts',
                 followers: '312k',
                 header: 'We love Uniqlo Shirts! <3',
@@ -113,7 +113,7 @@ class _TribePostsState extends State<TribePosts> {
                               selectedPostType = value;
                             });
                           }),
-                      Spacer(),
+                      const Spacer(),
                       FilterDropdown(
                           options: sortTypes,
                           selectedValue: selectedSortType,
@@ -127,8 +127,8 @@ class _TribePostsState extends State<TribePosts> {
                 ),
               ),
               // Your other content can be added here, instead of PostsTribe
-              Post(isBigger: true),
-              Post(isBigger: true),
+              const Post(isBigger: true),
+              const Post(isBigger: true),
               // Add more widgets as needed
             ],
           ),
