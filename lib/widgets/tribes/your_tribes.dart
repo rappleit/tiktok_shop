@@ -64,6 +64,7 @@ class _YourTribesState extends State<YourTribes> {
                       ),
                     ),
                     SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.grey,
@@ -96,40 +97,6 @@ class _YourTribesState extends State<YourTribes> {
                   ],
                 ),
               ),
-              // Expanded(
-              //   child: SingleChildScrollView(
-              //     scrollDirection: Axis.vertical,
-              //     child: Column(
-              //       children: [
-              //         YourTribeItem(
-              //           imageUrl: 'https://picsum.photos/250?image=9',
-              //           name: 'Your Tribe 1',
-              //           subscriberCount: 2839482,
-              //         ),
-              //         YourTribeItem(
-              //           imageUrl: 'https://picsum.photos/250?image=9',
-              //           name: 'Your Tribe 2',
-              //           subscriberCount: 487482,
-              //         ),
-              //         YourTribeItem(
-              //           imageUrl: 'https://picsum.photos/250?image=9',
-              //           name: 'Your Tribe 3',
-              //           subscriberCount: 2882,
-              //         ),
-              //         YourTribeItem(
-              //           imageUrl: 'https://picsum.photos/250?image=9',
-              //           name: 'Your Tribe 4',
-              //           subscriberCount: 999,
-              //         ),
-              //         YourTribeItem(
-              //           imageUrl: 'https://picsum.photos/250?image=9',
-              //           name: 'Your Tribe 5',
-              //           subscriberCount: 55555,
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

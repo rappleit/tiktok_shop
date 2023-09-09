@@ -17,13 +17,8 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Spacer(),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle "See more" button press
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                  ),
+                TextButton(
+                  onPressed: () {},
                   child: Text('See more'),
                 ),
               ],

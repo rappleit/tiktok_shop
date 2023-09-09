@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/models/your_tribe_item.dart';
 import 'package:tiktok_shop/screens/seasonal_quest.dart';
 
 class EventGallery extends StatelessWidget {
-  final PageController _pageController = PageController(
-    viewportFraction: 1,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
       child: SizedBox(
         height: 200.0,
-        child: PageView.builder(
-          controller: _pageController,
-          itemCount: 3, // Number of cards
-          itemBuilder: (BuildContext context, int index) {
-            return EventCard(
-              imagePath: 'assets/socialhub/event-banner-1.png',
-            );
-          },
-          pageSnapping: false, // Disable snapping for smoother effect
+        child: SingleChildScrollView(
           physics: BouncingScrollPhysics(), // Add a bouncy effect
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              EventCard(
+                imagePath: 'assets/socialhub/event-banner-1.png',
+                content: 'October Challenge: Spooky Savings!',
+                participants: 280336,
+              ),
+              EventCard(
+                content: 'December Challenge: Secret Santa!',
+                imagePath: 'assets/socialhub/event-banner-3.png',
+                participants: 4120336,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -30,8 +34,13 @@ class EventGallery extends StatelessWidget {
 
 class EventCard extends StatelessWidget {
   final String imagePath;
+  final String content;
+  final int participants;
 
-  EventCard({required this.imagePath});
+  EventCard(
+      {required this.imagePath,
+      required this.content,
+      required this.participants});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +82,7 @@ class EventCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'October Challenge: Spooky Savings!',
+                      content,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -81,7 +90,7 @@ class EventCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '280k participants',
+                      "${formatNumber(participants)} participants",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14.0,

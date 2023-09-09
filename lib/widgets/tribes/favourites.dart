@@ -20,6 +20,7 @@ class ForYou extends StatelessWidget {
               ],
             ),
             SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,

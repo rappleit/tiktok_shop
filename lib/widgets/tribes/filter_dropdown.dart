@@ -1,52 +1,23 @@
 import 'package:flutter/material.dart';
 
 class FilterDropdown extends StatefulWidget {
-  const FilterDropdown({super.key});
+  final List<Map> options;
+  final String selectedValue;
+  final Function(String) onChanged;
+
+  const FilterDropdown(
+      {super.key,
+      required this.options,
+      required this.selectedValue,
+      required this.onChanged});
 
   @override
-  _FilterDropdownState createState() => _FilterDropdownState();
+  State<FilterDropdown> createState() => _FilterDropdownState();
 }
 
 class _FilterDropdownState extends State<FilterDropdown> {
-  String selectedPostType = 'All';
-  String selectedSortType = 'Trending';
-  final List<Map> postTypes = [
-    {'label': 'All', 'icon': Icons.circle},
-    {'label': 'Review', 'icon': Icons.rate_review},
-    {'label': 'Enquiry', 'icon': Icons.question_answer},
-    {'label': 'Tips', 'icon': Icons.lightbulb_outline},
-    {'label': 'Misc', 'icon': Icons.category},
-  ];
-
-  final List<Map> sortTypes = [
-    {'label': 'Trending', 'icon': Icons.trending_up},
-    {'label': 'New', 'icon': Icons.new_releases},
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          _buildDropdown(postTypes, selectedPostType, (value) {
-            setState(() {
-              selectedPostType = value;
-            });
-          }),
-          Spacer(),
-          _buildDropdown(sortTypes, selectedSortType, (value) {
-            setState(() {
-              selectedSortType = value;
-            });
-          }),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDropdown(
-      List<Map> options, String selectedValue, Function(String) onChanged) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
@@ -54,10 +25,10 @@ class _FilterDropdownState extends State<FilterDropdown> {
         color: Colors.white,
       ),
       child: DropdownButton(
-        value: selectedValue,
+        value: widget.selectedValue,
         icon: Icon(Icons.arrow_drop_down),
-        onChanged: (value) => onChanged(value!.toString()),
-        items: options.map((option) {
+        onChanged: (value) => widget.onChanged(value!.toString()),
+        items: widget.options.map((option) {
           return DropdownMenuItem(
             key: ValueKey(option),
             value: option["label"],

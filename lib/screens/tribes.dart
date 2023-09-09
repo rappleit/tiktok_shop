@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_shop/widgets/bottom_navbar.dart';
 import 'package:tiktok_shop/widgets/home/flash_sale.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
-import 'package:tiktok_shop/widgets/tribes/for_you.dart';
+import 'package:tiktok_shop/widgets/tribes/favourites.dart';
 import 'package:tiktok_shop/widgets/tribes/most_popular.dart';
 import 'package:tiktok_shop/widgets/tribes/post.dart';
 import 'package:tiktok_shop/widgets/tribes/your_tribes.dart';
@@ -11,13 +11,26 @@ class TribesScreen extends StatefulWidget {
   const TribesScreen({super.key});
 
   @override
-  _TribesScreenState createState() => _TribesScreenState();
+  State<TribesScreen> createState() => _TribesScreenState();
 }
 
 class _TribesScreenState extends State<TribesScreen>
     with TickerProviderStateMixin {
   late TabController _tabController;
   List<String> tabs = ['Feed', 'Tribes'];
+  String selectedPostType = 'All';
+  final List<Map> postTypes = [
+    {'label': 'All', 'icon': Icons.circle},
+    {'label': 'Review', 'icon': Icons.rate_review},
+    {'label': 'Enquiry', 'icon': Icons.question_answer},
+    {'label': 'Tips', 'icon': Icons.lightbulb_outline},
+    {'label': 'Misc', 'icon': Icons.category},
+  ];
+  String selectedSortType = 'Trending';
+  final List<Map> sortTypes = [
+    {'label': 'Trending', 'icon': Icons.trending_up},
+    {'label': 'New', 'icon': Icons.new_releases},
+  ];
 
   @override
   void initState() {
@@ -143,7 +156,33 @@ class _TribesScreenState extends State<TribesScreen>
                     ),
                   ],
                 ),
-                FilterDropdown(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Row(
+                      children: [
+                        FilterDropdown(
+                            options: postTypes,
+                            selectedValue: selectedPostType,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedPostType = value;
+                              });
+                            }),
+                        Spacer(),
+                        FilterDropdown(
+                            options: sortTypes,
+                            selectedValue: selectedSortType,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedSortType = value;
+                              });
+                            }),
+                      ],
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: Stack(
                     children: [

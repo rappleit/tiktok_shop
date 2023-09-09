@@ -26,6 +26,7 @@ class FlashSale extends StatelessWidget {
                 height: 165,
                 color: Color(0xFFFFB1C5),
                 child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: products.map((productDoc) {
@@ -34,7 +35,10 @@ class FlashSale extends StatelessWidget {
                       return ProductItem(
                         imageUrl: productData['thumbnail'],
                         title: productData['name'],
-                        price: productData['price'].toDouble(),
+                        price: productData['price'] is int
+                            ? double.parse(
+                                productData['price'].toString() + '.00')
+                            : double.parse(productData['price']),
                         id: productData['uuid'],
                         isFlashSale: true,
                       );

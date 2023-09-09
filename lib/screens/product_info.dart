@@ -180,7 +180,7 @@ class ProductInfoScreen extends StatelessWidget {
                                   ),
                                   borderRadius: BorderRadius.circular(8.0)),
                               child: Center(
-                                  child: Text('\$ ${price}',
+                                  child: Text('\$ ${price.toStringAsFixed(2)}',
                                       style: TextStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.bold)))),

@@ -60,13 +60,6 @@ class _ProductScreenState extends State<ProductScreen>
           children: [
             Spacer(),
             IconButton(
-              icon: Icon(Icons.assignment_rounded),
-              color: Colors.black,
-              onPressed: () {
-                // Implement quest
-              },
-            ),
-            IconButton(
               icon: Icon(Icons.shopping_cart),
               color: Colors.black,
               onPressed: () {

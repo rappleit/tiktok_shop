@@ -7,6 +7,7 @@ class ProductItem extends StatelessWidget {
   final double price;
   final String id;
   final bool isFlashSale;
+  final bool isFulfillWishlist;
 
   const ProductItem({
     required this.imageUrl,
@@ -14,63 +15,102 @@ class ProductItem extends StatelessWidget {
     required this.price,
     required this.id,
     this.isFlashSale = false,
+    this.isFulfillWishlist = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-                builder: (context) => ProductInfoScreen(
-                      imageUrl: imageUrl,
-                      title: title,
-                      price: price,
-                      id: id,
-                    )),
-          );
-        },
-        child: Container(
-          margin: EdgeInsets.all(8),
-          height: isFlashSale ? 600 : 200,
-          width: isFlashSale ? 120 : MediaQuery.of(context).size.width * 0.4,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 10,
+    return isFulfillWishlist
+        ? Container(
+            margin: EdgeInsets.fromLTRB(0, 2, 0, 0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+            ),
+            child: Container(
+              margin: EdgeInsets.all(16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.network(
+                    imageUrl,
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                  Spacer(),
+                  Text(
+                    "\$${price.toStringAsFixed(2)}",
+                    style: Theme.of(context).textTheme.titleSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              Image.network(
-                imageUrl,
-                width: 80,
-                height: 80,
-                fit: BoxFit.cover,
+            ),
+          )
+        : GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => ProductInfoScreen(
+                          imageUrl: imageUrl,
+                          title: title,
+                          price: price,
+                          id: id,
+                        )),
+              );
+            },
+            child: Container(
+              margin: EdgeInsets.all(8),
+              height: isFlashSale ? 600 : 200,
+              width:
+                  isFlashSale ? 120 : MediaQuery.of(context).size.width * 0.4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
               ),
-              Text(
-                title,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(fontSize: 14),
-                textAlign: TextAlign.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Image.network(
+                    imageUrl,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    title,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "\$$price",
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.redAccent,
+                          fontSize: 14,
+                        ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              Text(
-                "\$$price",
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: Colors.redAccent,
-                      fontSize: 14,
-                    ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ));
+            ));
   }
 }

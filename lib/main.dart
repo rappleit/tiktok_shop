@@ -12,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 final kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color(0xFFEE1D52),
 );
-// textTheme: ,
 
 Future<void> main() async {
   await dotenv.load(fileName: ".env");

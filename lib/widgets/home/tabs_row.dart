@@ -72,7 +72,7 @@ class _TabsRowState extends State<TabsRow> {
             Positioned(
               right: 0,
               child: Padding(
-                padding: const EdgeInsets.all(4.0), // Adjust margin as needed
+                padding: const EdgeInsets.all(4.0),
                 child: Container(
                   width: 10,
                   height: 10,

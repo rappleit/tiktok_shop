@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/models/wishlist_item.dart';
 
 class WishlistsPreviewWidget extends StatelessWidget {
   @override
@@ -24,66 +25,28 @@ class WishlistsPreviewWidget extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: WishlistCard(),
+                  child: WishlistItem(
+                      imageUrl: 'assets/placeholders/product1.jpg',
+                      name: "semipreparedcat",
+                      count: 6),
                 ),
                 Expanded(
-                  child: WishlistCard(),
+                  child: WishlistItem(
+                      imageUrl: 'assets/placeholders/product1.jpg',
+                      name: "semipreparedcat",
+                      count: 6),
                 ),
                 Expanded(
-                  child: WishlistCard(),
+                  child: WishlistItem(
+                      imageUrl: 'assets/placeholders/product1.jpg',
+                      name: "semipreparedcat",
+                      count: 6),
                 ),
               ],
             ),
           ),
         ),
       ],
-    );
-  }
-}
-
-class WishlistCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Container(
-        width: 200.0,
-        height: 120.0,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          image: DecorationImage(
-            image: AssetImage('assets/placeholders/product1.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: 48,
-              child: Container(
-                color: Color(0xFFEE1D52),
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Text(
-                        "@semipreparedcat's Wishlist",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

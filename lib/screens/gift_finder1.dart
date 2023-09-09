@@ -56,7 +56,6 @@ class GiftFinder1 extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
-            selectedTags.removeLast();
           },
           icon: Icon(Icons.arrow_back_ios),
           color: Theme.of(context).iconTheme.color,

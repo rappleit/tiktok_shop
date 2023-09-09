@@ -25,7 +25,7 @@ class _NotifsState extends State<Notifs> {
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Icon(
-                Icons.notifications_sharp,
+                Icons.mail,
                 size: 30,
                 color: Colors.white,
               ),
