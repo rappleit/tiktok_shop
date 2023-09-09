@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_shop/models/product_item.dart';
+import 'package:tiktok_shop/models/product_grid.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tiktok_shop/widgets/tribes/filter_dropdown.dart';
 
 class MyWishlist extends StatefulWidget {
@@ -58,22 +59,9 @@ class _MyWishlistState extends State<MyWishlist> {
             color: Color(0xFFFFB1C5),
           ),
           height: 200,
-          child: Row(
-            children: [
-              ProductItem(
-                id: "abc",
-                imageUrl: "https://picsum.photos/250?image=9",
-                title: "Product 1",
-                price: 6.80,
-              ),
-              ProductItem(
-                id: "abc",
-                imageUrl: "https://picsum.photos/250?image=9",
-                title: "Product 2",
-                price: 6.80,
-              )
-            ],
-          ),
+          child: ProductGridView(
+              isForDisplay: true,
+              userid: FirebaseAuth.instance.currentUser!.uid),
         ),
       ],
     );

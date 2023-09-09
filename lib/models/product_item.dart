@@ -110,7 +110,7 @@ class ProductItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    "\$$price",
+                    "\$${price.toStringAsFixed(2)}",
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: Colors.redAccent,
                           fontSize: 14,

@@ -251,15 +251,19 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                         .get()
                                         .then((doc) => doc.data()!['wishlist'])
                                         .then((wishlistData) {
-                                      if (wishlistData.contains(id)) {
+                                      if (wishlistData.containsKey(id)) {
                                         userDoc.update({
-                                          'wishlist':
-                                              FieldValue.arrayRemove([id]),
+                                          "wishlist": wishlistData.remove(id)
                                         });
                                       } else {
+                                        Map toAdd = {...wishlistData};
+                                        toAdd[id] = {
+                                          "imageUrl": imageUrl,
+                                          "title": title,
+                                          "price": price
+                                        };
                                         userDoc.update({
-                                          'wishlist':
-                                              FieldValue.arrayUnion([id]),
+                                          'wishlist': toAdd,
                                         });
                                       }
                                     });
@@ -275,7 +279,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                         content: Text(isAddedToWishlist
                                             ? 'Removed from wishlist!'
                                             : 'Added to wishlist!'),
-                                        duration: Duration(seconds: 10),
+                                        duration: Duration(seconds: 3),
                                         action: SnackBarAction(
                                           label: 'Undo',
                                           onPressed: () {

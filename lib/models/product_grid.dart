@@ -113,27 +113,21 @@ class ProductGridView extends StatelessWidget {
                   !snapshot.hasData) {
                 return CircularProgressIndicator();
               }
-
-              final products = snapshot.data!["wishlist"]
-                  .map((doc) => Product(
-                        imageUrl: doc['thumbnail'],
-                        title: doc['name'],
-                        price: doc['price'].toDouble(),
-                        id: doc['uuid'],
-                        category: doc['category'],
-                      ))
-                  .toList();
-// 2
+              var wishlist = snapshot.data!["wishlist"];
+              var products = isForDisplay
+                  ? wishlist.entries.toList().sublist(0, 2)
+                  : wishlist.entries.toList();
+              print(products);
               return isForDisplay
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        for (Product product in products)
+                        for (var product in products)
                           ProductItem(
-                            imageUrl: product.imageUrl,
-                            title: product.title,
-                            price: product.price,
-                            id: product.id,
+                            imageUrl: product.value["imageUrl"],
+                            title: product.value["title"],
+                            price: product.value["price"],
+                            id: product.key,
                           ),
                       ],
                     )
@@ -147,11 +141,10 @@ class ProductGridView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final product = products[index];
                         return ProductItem(
-                          imageUrl: product.imageUrl,
-                          title: product.title,
-                          price: product.price,
-                          id: product.id,
-                          isFlashSale: false, // Set this as needed
+                          imageUrl: product.value["imageUrl"],
+                          title: product.value["title"],
+                          price: product.value["price"],
+                          id: product.key,
                         );
                       },
                     );
