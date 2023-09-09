@@ -43,113 +43,110 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 200,
-              child: Stack(
-                children: [
-                  Container(
-                    color: Colors.grey,
-                    child: Image.asset(
-                      'assets/advert.png',
-                      fit: BoxFit.cover,
-                    ),
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            child: Stack(
+              children: [
+                Container(
+                  color: Colors.grey,
+                  child: Image.asset(
+                    'assets/advert.png',
+                    fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    bottom: 10,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      color: Colors.transparent,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.8),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ],
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                              ),
-                              padding:
-                                  const EdgeInsets.only(left: 16, right: 0),
-                              child: Row(
-                                children: [
-                                  // Spacing before "Search for items"
-                                  SizedBox(width: 5),
-                                  Expanded(
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                          hintText: 'Search for items',
-                                          // Placeholder text
-                                          hintStyle: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 16),
-                                          border: InputBorder.none,
-                                          suffixIcon: Container(
-                                            decoration: BoxDecoration(
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.grey
-                                                      .withOpacity(0.8),
-                                                  spreadRadius: 2,
-                                                  blurRadius: 5,
-                                                  offset: Offset(0, 3),
-                                                ),
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              color: Color(0xFFEE1D52),
-                                            ),
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 12, horizontal: 6),
-                                            child: Icon(
-                                              Icons.search,
-                                              color: Colors.white,
-                                            ),
-                                          )),
+                ),
+                Positioned(
+                  bottom: 10,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    color: Colors.transparent,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.8),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            padding: const EdgeInsets.only(left: 16, right: 0),
+                            child: Row(
+                              children: [
+                                // Spacing before "Search for items"
+                                SizedBox(width: 5),
+                                Expanded(
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: 'Search for items',
+                                        // Placeholder text
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 16),
+                                        border: InputBorder.none,
+                                        suffixIcon: Container(
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.8),
+                                                spreadRadius: 2,
+                                                blurRadius: 5,
+                                                offset: Offset(0, 3),
+                                              ),
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Color(0xFFEE1D52),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 6),
+                                          child: Icon(
+                                            Icons.search,
+                                            color: Colors.white,
+                                          ),
+                                        )),
 
-                                      // Text written inside
+                                    // Text written inside
 
-                                      style: TextStyle(color: Colors.black),
-                                    ),
+                                    style: TextStyle(color: Colors.black),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(width: 16),
-                          Coins(),
-                        ],
-                      ),
+                        ),
+                        SizedBox(width: 16),
+                        Coins(),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            TabsRow(),
-            FlashSale(),
-            SizedBox(
-              height: 10,
-            ),
-            Trending(),
-            SizedBox(
-              height: 10,
-            ),
-            ProductTabs(),
-          ],
-        ),
+          ),
+          TabsRow(),
+          FlashSale(),
+          SizedBox(
+            height: 10,
+          ),
+          Trending(),
+          SizedBox(
+            height: 10,
+          ),
+          ProductTabs(),
+        ],
       ),
       bottomNavigationBar: BottomNavBar(),
     );

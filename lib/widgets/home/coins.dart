@@ -83,11 +83,7 @@ class _CoinsState extends State<Coins> {
               SizedBox(width: 4),
               Text(
                 '$coins',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ],
           ),

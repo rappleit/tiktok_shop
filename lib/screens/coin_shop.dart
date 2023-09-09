@@ -7,7 +7,7 @@ class CoinScreen extends StatefulWidget {
   const CoinScreen({super.key});
 
   @override
-  _CoinScreenState createState() => _CoinScreenState();
+  State<CoinScreen> createState() => _CoinScreenState();
 }
 
 class _CoinScreenState extends State<CoinScreen> {
@@ -53,7 +53,7 @@ class _CoinScreenState extends State<CoinScreen> {
         title: Row(
           children: [
             const Text(
-              'My Coins',
+              'Tiktok Coins',
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
@@ -93,7 +93,7 @@ class _CoinScreenState extends State<CoinScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Redeemable Coins",
+                Text("My Coins",
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 Container(
@@ -110,11 +110,13 @@ class _CoinScreenState extends State<CoinScreen> {
                         height: 28,
                       ),
                       SizedBox(width: 8),
-                      Text("$userCoins",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
+                      Text(
+                        "$userCoins",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(color: Colors.white),
+                      ),
                     ],
                   ),
                 )

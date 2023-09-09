@@ -29,20 +29,19 @@ class FlashSale extends StatelessWidget {
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: products.map((productDoc) {
-                      final productData =
-                          productDoc.data() as Map<String, dynamic>;
-                      return ProductItem(
-                        imageUrl: productData['thumbnail'],
-                        title: productData['name'],
-                        price: productData['price'] is int
-                            ? double.parse(
-                                productData['price'].toString() + '.00')
-                            : double.parse(productData['price']),
-                        id: productData['uuid'],
-                        isFlashSale: true,
-                      );
-                    }).toList(),
+                    children: products.map(
+                      (productDoc) {
+                        final productData =
+                            productDoc.data() as Map<String, dynamic>;
+                        return ProductItem(
+                          imageUrl: productData['thumbnail'],
+                          title: productData['name'],
+                          price: productData['price'].toDouble(),
+                          id: productData['uuid'],
+                          isFlashSale: true,
+                        );
+                      },
+                    ).toList(),
                   ),
                 ),
               );

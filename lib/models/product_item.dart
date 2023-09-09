@@ -71,7 +71,7 @@ class ProductItem extends StatelessWidget {
             },
             child: Container(
               margin: EdgeInsets.all(8),
-              height: isFlashSale ? 600 : 200,
+              height: isFlashSale ? 600 : 158,
               width:
                   isFlashSale ? 120 : MediaQuery.of(context).size.width * 0.4,
               decoration: BoxDecoration(
@@ -80,21 +80,20 @@ class ProductItem extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Image.network(
-                    imageUrl,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.network(
+                      imageUrl,
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Text(
                     title,
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+                    maxLines: 1,
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!
@@ -102,7 +101,7 @@ class ProductItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    "\$$price",
+                    "\$${price.toStringAsFixed(2)}",
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: Colors.redAccent,
                           fontSize: 14,
