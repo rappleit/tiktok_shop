@@ -45,6 +45,30 @@ class _AuthScreenState extends State<AuthScreen> {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
         print(userCredentials);
+        if (userCredentials.user != null) {
+          final String userUid = userCredentials.user!.uid;
+
+          // Define the initial user data
+          final Map<String, dynamic> initialUserData = {
+            'id': userUid,
+            'username': _enteredUsername,
+            'cart': <String, dynamic>{},
+            'friends': <String, dynamic>{},
+            'giftTokens': <String, dynamic>{},
+            'quests': <String, dynamic>{},
+            'wishlist': <String, dynamic>{},
+            'coins': 0
+          };
+
+          try {
+            await FirebaseFirestore.instance
+                .collection('user')
+                .doc(userUid)
+                .set(initialUserData);
+          } catch (error) {
+            print('Error creating user document: $error');
+          }
+        }
 
         // await FirebaseFirestore.instance
         //     .collection('users')
@@ -118,23 +142,23 @@ class _AuthScreenState extends State<AuthScreen> {
                               _enteredEmail = value!;
                             },
                           ),
-                          // if (!_isLogin)
-                          //   TextFormField(
-                          //     decoration:
-                          //         const InputDecoration(labelText: 'Username'),
-                          //     enableSuggestions: false,
-                          //     validator: (value) {
-                          //       if (value == null ||
-                          //           value.isEmpty ||
-                          //           value.trim().length < 4) {
-                          //         return 'Please enter at least 4 characters.';
-                          //       }
-                          //       return null;
-                          //     },
-                          //     onSaved: (value) {
-                          //       _enteredUsername = value!;
-                          //     },
-                          //   ),
+                          if (!_isLogin)
+                            TextFormField(
+                              decoration:
+                                  const InputDecoration(labelText: 'Username'),
+                              enableSuggestions: false,
+                              validator: (value) {
+                                if (value == null ||
+                                    value.isEmpty ||
+                                    value.trim().length < 4) {
+                                  return 'Please enter at least 4 characters.';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _enteredUsername = value!;
+                              },
+                            ),
                           TextFormField(
                             decoration:
                                 const InputDecoration(labelText: 'Password'),
