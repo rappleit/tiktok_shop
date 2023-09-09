@@ -113,11 +113,10 @@ class ProductGridView extends StatelessWidget {
                   !snapshot.hasData) {
                 return CircularProgressIndicator();
               }
-              var wishlist = snapshot.data!["wishlist"];
+              var wishlist = snapshot.data!["wishlist"].entries.toList();
               var products = isForDisplay
-                  ? wishlist.entries.toList().sublist(0, 2)
-                  : wishlist.entries.toList();
-              print(products);
+                  ? (wishlist.length > 2 ? (wishlist.sublist(0, 2)) : wishlist)
+                  : wishlist;
               return isForDisplay
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -131,22 +130,22 @@ class ProductGridView extends StatelessWidget {
                           ),
                       ],
                     )
-                  : GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 16.0,
-                        mainAxisSpacing: 16.0,
+                  : Expanded(
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                        ),
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          final product = products[index];
+                          return ProductItem(
+                            imageUrl: product.value["imageUrl"],
+                            title: product.value["title"],
+                            price: product.value["price"],
+                            id: product.key,
+                          );
+                        },
                       ),
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        final product = products[index];
-                        return ProductItem(
-                          imageUrl: product.value["imageUrl"],
-                          title: product.value["title"],
-                          price: product.value["price"],
-                          id: product.key,
-                        );
-                      },
                     );
             },
           );
