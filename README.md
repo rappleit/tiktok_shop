@@ -1,8 +1,9 @@
 # Tiktok Shop [Team Routourist]
  Team Routourist's Entry for Tiktok Hackathon 2023
 
-https://tiktokhackathonchallenge2023.devpost.com/
+https://devpost.com/software/tiktok-shop
 
+You can find the app's apk file under Releases.
 
  ## Features
 
