@@ -10,6 +10,7 @@ class ProductItem extends StatelessWidget {
   final bool isFulfillWishlist;
 
   const ProductItem({
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.price,
@@ -22,13 +23,13 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return isFulfillWishlist
         ? Container(
-            margin: EdgeInsets.fromLTRB(0, 2, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
             child: Container(
-              margin: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -39,7 +40,7 @@ class ProductItem extends StatelessWidget {
                     height: 30,
                     fit: BoxFit.cover,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Text(
@@ -47,7 +48,7 @@ class ProductItem extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                     textAlign: TextAlign.center,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "\$${price.toStringAsFixed(2)}",
                     style: Theme.of(context).textTheme.titleSmall,
@@ -61,16 +62,17 @@ class ProductItem extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) => ProductInfoScreen(
-                          imageUrl: imageUrl,
-                          title: title,
-                          price: price,
-                          id: id,
-                        )),
+                  builder: (context) => ProductInfoScreen(
+                    imageUrl: imageUrl,
+                    title: title,
+                    price: price,
+                    id: id,
+                  ),
+                ),
               );
             },
             child: Container(
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
               height: isFlashSale ? 600 : 200,
               width:
                   isFlashSale ? 120 : MediaQuery.of(context).size.width * 0.4,
@@ -82,7 +84,7 @@ class ProductItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Image.network(
@@ -92,7 +94,7 @@ class ProductItem extends StatelessWidget {
                     fit: BoxFit.cover,
                     errorBuilder: (BuildContext context, Object exception,
                         StackTrace? stackTrace) {
-                      return Icon(
+                      return const Icon(
                         Icons.error_outline,
                         size: 48.0,
                         color: Colors.red,
@@ -119,6 +121,7 @@ class ProductItem extends StatelessWidget {
                   ),
                 ],
               ),
-            ));
+            ),
+          );
   }
 }

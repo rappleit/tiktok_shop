@@ -11,7 +11,8 @@ class ProductTabs extends StatefulWidget {
 class _ProductTabsState extends State<ProductTabs>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  List<String> tabs = [
+  int _selectedTabIndex = 0;
+  final List<String> tabs = [
     'Recommended',
     'New',
     'Electronics',
@@ -34,6 +35,12 @@ class _ProductTabsState extends State<ProductTabs>
       length: tabs.length,
       vsync: this,
     );
+    // DO if _tabController.index not updating in TabBarView for some reason
+    _tabController.addListener(() {
+      setState(() {
+        _selectedTabIndex = _tabController.index;
+      });
+    });
   }
 
   @override
@@ -70,7 +77,7 @@ class _ProductTabsState extends State<ProductTabs>
                   .toList(),
               labelColor: Colors.black, // Color for selected tab label
               labelStyle: Theme.of(context).textTheme.titleMedium,
-              indicatorColor: Color(0xFFEE1D52),
+              indicatorColor: const Color(0xFFEE1D52),
               unselectedLabelColor:
                   Colors.grey, // Color for unselected tab label
             ),
@@ -85,78 +92,78 @@ class _ProductTabsState extends State<ProductTabs>
                   ProductGridView(
                     category: "electronics",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
 
                   // Content for "New" tab
                   ProductGridView(
                     category: "skincare",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
 
                   // Content for "Electronics" tab
                   ProductGridView(
                     category: "electronics",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
 
                   // Content for "Fragrances" tab
                   ProductGridView(
                     category: "fragrances",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Skincare" tab
                   ProductGridView(
                     category: "skincare",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Groceries" tab
                   ProductGridView(
                     category: "groceries",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Home Decor" tab
                   ProductGridView(
                     category: "home-decor",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Furniture" tab
                   ProductGridView(
                     category: "furniture",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Fashion" tab
                   ProductGridView(
                     category: "fashion",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Accessories" tab
 
                   ProductGridView(
                     category: "accessories",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Automotive" tab
 
                   ProductGridView(
                     category: "automotive",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                   // Content for "Lighting" tab
                   ProductGridView(
                     category: "lighting",
                     isForDisplay: true,
-                    selectedTabIndex: _tabController.index,
+                    selectedTabIndex: _selectedTabIndex,
                   ),
                 ],
               ),

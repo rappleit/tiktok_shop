@@ -58,7 +58,7 @@ class _ProductScreenState extends State<ProductScreen>
           children: [
             const Spacer(),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Colors.black,
               onPressed: () {
                 // Implement shopping cart
@@ -90,7 +90,7 @@ class _ProductScreenState extends State<ProductScreen>
                   .toList(),
               labelColor: Colors.black,
               labelStyle: Theme.of(context).textTheme.titleMedium,
-              indicatorColor: Color(0xFFEE1D52),
+              indicatorColor: const Color(0xFFEE1D52),
               unselectedLabelColor: Colors.grey,
             ),
           ),
@@ -99,56 +99,71 @@ class _ProductScreenState extends State<ProductScreen>
             child: Container(
               height: 300,
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TabBarView(controller: _tabController, children: [
-                ProductGridView(
-                  category: "electronics",
-                ),
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ProductGridView(
+                    category: "electronics",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
 
-                // Content for "New" tab
-                ProductGridView(
-                  category: "skincare",
-                ),
-                // Content for "Electronics" tab
-                ProductGridView(
-                  category: "electronics",
-                ),
-                // Content for "Fragrances" tab
-                ProductGridView(
-                  category: "fragrances",
-                ),
-                // Content for "Skincare" tab
-                ProductGridView(
-                  category: "skincare",
-                ),
-                // Content for "Groceries" tab
-                ProductGridView(
-                  category: "groceries",
-                ),
-                // Content for "Home Decor" tab
-                ProductGridView(
-                  category: "home-decor",
-                ),
-                // Content for "Furniture" tab
-                ProductGridView(
-                  category: "furniture",
-                ),
-                // Content for "Fashion" tab
-                ProductGridView(
-                  category: "fashion",
-                ),
-                // Content for "Accessories" tab
-                ProductGridView(
-                  category: "accessories",
-                ),
-                // Content for "Automotive" tab
-                ProductGridView(
-                  category: "automotive",
-                ),
-                // Content for "Lighting" tab
-                ProductGridView(
-                  category: "lighting",
-                ),
-              ]),
+                  // Content for "New" tab
+                  ProductGridView(
+                    category: "skincare",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Electronics" tab
+                  ProductGridView(
+                    category: "electronics",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Fragrances" tab
+                  ProductGridView(
+                    category: "fragrances",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Skincare" tab
+                  ProductGridView(
+                    category: "skincare",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Groceries" tab
+                  ProductGridView(
+                    category: "groceries",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Home Decor" tab
+                  ProductGridView(
+                    category: "home-decor",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Furniture" tab
+                  ProductGridView(
+                    category: "furniture",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Fashion" tab
+                  ProductGridView(
+                    category: "fashion",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Accessories" tab
+                  ProductGridView(
+                    category: "accessories",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Automotive" tab
+                  ProductGridView(
+                    category: "automotive",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                  // Content for "Lighting" tab
+                  ProductGridView(
+                    category: "lighting",
+                    selectedTabIndex: widget.selectedTabIndex,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

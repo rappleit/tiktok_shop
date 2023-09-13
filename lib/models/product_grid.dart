@@ -25,7 +25,8 @@ class ProductGridView extends StatelessWidget {
   final int selectedTabIndex;
   final String? userid;
 
-  ProductGridView({
+  const ProductGridView({
+    super.key,
     this.category,
     this.isForDisplay = false,
     this.selectedTabIndex = 0,
@@ -44,7 +45,7 @@ class ProductGridView extends StatelessWidget {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting ||
                   !snapshot.hasData) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
 
               final products = snapshot.data!.docs
@@ -84,7 +85,8 @@ class ProductGridView extends StatelessWidget {
                       ),
                     )
                   : GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 16.0,
                         mainAxisSpacing: 16.0,

@@ -120,7 +120,7 @@ class GiftFinder3 extends StatelessWidget {
                         imageUrl: productData['thumbnail'],
                         title: productData['name'],
                         price: productData['price'].toDouble(),
-                        id: filteredProducts[index].id,
+                        id: productData['uuid'],
                       );
                     },
                   );

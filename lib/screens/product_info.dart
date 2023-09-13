@@ -88,7 +88,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
             } else {
               var documents = snapshot.data?.docs;
 
-              productData = documents?[0]?.data() ?? {};
+              productData = documents?[0].data() ?? {};
               return Column(
                 children: [
                   Container(
@@ -129,7 +129,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Row(
                             children: [
                               const Icon(
@@ -137,7 +137,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                 color: Color(0xFFEE1D52),
                                 size: 24.0,
                               ),
-                              SizedBox(width: 6.0),
+                              const SizedBox(width: 6.0),
                               Text(
                                 '${productData?['rating'] ?? 'N/A'} / 5',
                                 style: const TextStyle(
@@ -195,7 +195,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                       const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color(0xFFEE1D52), // Set the border color
+                      color: const Color(0xFFEE1D52), // Set the border color
                       width: 2.0, // Set the border width
                     ),
                     borderRadius: BorderRadius.circular(8.0),
@@ -208,11 +208,11 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                     ),
                   ),
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFFEE1D52),
+                      color: const Color(0xFFEE1D52),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     padding: const EdgeInsets.symmetric(
@@ -228,7 +228,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                     ),
                   ),
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 ElevatedButton(
                   onPressed: () {
                     showModalBottomSheet(
@@ -295,20 +295,22 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                                 .then((doc) =>
                                                     doc.data()!['wishlist'])
                                                 .then((wishlistData) {
-                                              if (wishlistData.contains(id)) {
+                                              if (wishlistData
+                                                  .containsKey(id)) {
                                                 userDoc.update({
-                                                  'wishlist':
-                                                      FieldValue.arrayRemove(
-                                                          [id]),
+                                                  "wishlist":
+                                                      wishlistData.remove(id)
                                                 });
-                                                print('Removed from wishlist!');
                                               } else {
+                                                Map toAdd = {...wishlistData};
+                                                toAdd[id] = {
+                                                  "imageUrl": imageUrl,
+                                                  "title": title,
+                                                  "price": price
+                                                };
                                                 userDoc.update({
-                                                  'wishlist':
-                                                      FieldValue.arrayUnion(
-                                                          [id]),
+                                                  'wishlist': toAdd,
                                                 });
-                                                print('Added to wishlist!');
                                               }
                                             });
                                           },
