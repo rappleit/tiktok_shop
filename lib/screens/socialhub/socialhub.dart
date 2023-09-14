@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_shop/widgets/home/coins.dart';
 import 'package:tiktok_shop/widgets/socialhub/activity_feed_preview.dart';
 import 'package:tiktok_shop/widgets/socialhub/event_gallery.dart';
-import 'package:tiktok_shop/widgets/socialhub/notifs.dart';
 import 'package:tiktok_shop/widgets/socialhub/social_tabs.dart';
 import 'package:tiktok_shop/widgets/socialhub/wishlists_preview.dart';
 
@@ -49,10 +49,18 @@ class SocialHubScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Notifs(),
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Coins(),
+                Spacer(),
+              ],
+            ),
+          ),
           EventGallery(),
-          SocialTabsRow(),
-          WishlistsPreviewWidget(),
+          const SocialTabsRow(),
+          const WishlistsPreviewWidget(),
           const ActivityFeedPreviewWidget(),
         ],
       ),

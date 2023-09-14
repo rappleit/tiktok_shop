@@ -4,9 +4,10 @@ import 'package:tiktok_shop/screens/socialhub/quests.dart';
 import 'package:tiktok_shop/screens/socialhub/wishlists.dart';
 
 class SocialTabsRow extends StatelessWidget {
+  const SocialTabsRow({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
       child: Center(
         child: Row(
@@ -40,7 +41,8 @@ class SocialTab extends StatelessWidget {
   final IconData icon;
   final Widget route;
 
-  SocialTab({
+  const SocialTab({
+    super.key,
     required this.title,
     required this.icon,
     required this.route,
@@ -62,11 +64,11 @@ class SocialTab extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 8),
+              margin: const EdgeInsets.symmetric(horizontal: 8),
               width: 64.0,
               height: 64.0,
               decoration: BoxDecoration(
-                color: Color(0xFFEE1D52),
+                color: const Color(0xFFEE1D52),
                 borderRadius: BorderRadius.circular(8.0), // Rounded square
               ),
               child: Center(

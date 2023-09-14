@@ -297,10 +297,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                                 .then((wishlistData) {
                                               if (wishlistData
                                                   .containsKey(id)) {
-                                                userDoc.update({
-                                                  "wishlist":
-                                                      wishlistData.remove(id)
-                                                });
+                                                wishlistData.remove(id);
+                                                userDoc.update(
+                                                    {"wishlist": wishlistData});
                                               } else {
                                                 Map toAdd = {...wishlistData};
                                                 toAdd[id] = {

@@ -23,8 +23,15 @@ class FlashSale extends StatelessWidget {
             if (snapshot.hasData) {
               final products = snapshot.data?.docs ?? [];
               return Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.red, Colors.lightBlue],
+                  ),
+                ),
+                // color: const Color(0xFFFFB1C5)
                 height: 165,
-                color: const Color(0xFFFFB1C5),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,

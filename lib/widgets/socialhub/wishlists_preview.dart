@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_shop/models/socialhub/wishlist_item.dart';
 
 class WishlistsPreviewWidget extends StatelessWidget {
+  const WishlistsPreviewWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +20,7 @@ class WishlistsPreviewWidget extends StatelessWidget {
           ),
         ),
         const Padding(
-          padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+          padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
           child: SizedBox(
             height: 140,
             child: Row(

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tiktok_shop/widgets/bottom_navbar.dart';
-import 'package:tiktok_shop/widgets/home/coins.dart';
-import 'package:tiktok_shop/widgets/home/flash_sale.dart';
-import 'package:tiktok_shop/widgets/home/product_tabs.dart';
-import 'package:tiktok_shop/widgets/home/tabs_row.dart';
-import 'package:tiktok_shop/widgets/home/trending.dart';
+import 'package:tiktok_shop/widgets/home/home_body.dart';
+import 'package:tiktok_shop/widgets/home/inbox.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,10 +11,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _viewIndex = 1;
+  final List<Widget> _views = const [
+    HomeBody(),
+    HomeBody(),
+    HomeBody(),
+    Inbox(),
+    HomeBody()
+  ];
+  void onTabTapped(int index) {
+    setState(() {
+      _viewIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(237, 255, 255, 255),
@@ -47,115 +55,56 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 200,
-            child: Stack(
-              children: [
-                Container(
-                  color: Colors.grey,
-                  child: Image.asset(
-                    'assets/advert.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    color: Colors.transparent,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.8),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: const Offset(0, 3),
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            padding: const EdgeInsets.only(
-                              left: 16,
-                              right: 0,
-                            ),
-                            child: Row(
-                              children: [
-                                // Spacing before "Search for items"
-                                const SizedBox(width: 5),
-                                Expanded(
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: 'Search for items',
-                                        // Placeholder text
-                                        hintStyle: const TextStyle(
-                                            color: Colors.grey,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 16),
-                                        border: InputBorder.none,
-                                        suffixIcon: Container(
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.8),
-                                                spreadRadius: 2,
-                                                blurRadius: 5,
-                                                offset: const Offset(0, 3),
-                                              ),
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color(0xFFEE1D52),
-                                          ),
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 6),
-                                          child: const Icon(
-                                            Icons.search,
-                                            color: Colors.white,
-                                          ),
-                                        )),
-
-                                    // Text written inside
-
-                                    style: const TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        const Coins(),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+      body: _views[_viewIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
+        currentIndex: _viewIndex,
+        selectedItemColor: Colors.black,
+        showUnselectedLabels: true,
+        selectedIconTheme: IconThemeData(color: Colors.black),
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
+        unselectedItemColor: Colors.grey,
+        iconSize: 30,
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
             ),
+            label: 'Home',
           ),
-          const TabsRow(),
-          const FlashSale(),
-          const SizedBox(
-            height: 10,
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shop,
+            ),
+            label: 'Shop',
           ),
-          const Trending(),
-          const SizedBox(
-            height: 10,
+          BottomNavigationBarItem(
+              icon: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  // ROUNDED
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black,
+                ),
+                child: const Icon(
+                  Icons.add,
+                ),
+              ),
+              label: ""),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.message,
+            ),
+            label: 'Inbox',
           ),
-          const ProductTabs(),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+            ),
+            label: 'Profile',
+          ),
         ],
       ),
-      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

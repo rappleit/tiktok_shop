@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/models/product_item.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FulfilWishlistSelection extends StatefulWidget {
   final String name;
@@ -160,13 +161,51 @@ class _FulfilWishlistSelectionState extends State<FulfilWishlistSelection> {
                         padding: EdgeInsets.zero,
                       ),
                       onPressed: () {
-                        // When tapping buttons, also will hide keyboard
+                        var gift = {
+                          "products": selectedItems.map(
+                            (selectedItem) => {
+                              selectedItem.id: {
+                                "imageUrl": selectedItem.imageUrl,
+                                "price": selectedItem.price,
+                                "title": selectedItem.title,
+                              },
+                            },
+                          ),
+                          "note": messageController.text,
+                          "from": widget.name
+                        };
+                        var giftRecipient = FirebaseFirestore.instance
+                            .collection('user')
+                            .where("username", isEqualTo: widget.name);
+                        giftRecipient
+                            .get()
+                            .then((doc) => doc.docs.first.data()['id'])
+                            .then((giftRecipientId) {
+                          var giftRecipientDoc = FirebaseFirestore.instance
+                              .collection('user')
+                              .doc(giftRecipientId);
+                          giftRecipientDoc
+                              .get()
+                              .then((doc) => doc.data()!['gifts'])
+                              .then((giftsData) {
+                            giftsData.add(gift);
+                            giftRecipientDoc.update(
+                                {"gifts": FieldValue.arrayUnion(giftsData)});
+                          });
+                        });
                         FocusScope.of(context).unfocus();
+                        for (var i = 0; i < 2; i++) Navigator.of(context).pop();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Gifted!'),
+                            duration: Duration(seconds: 3),
+                          ),
+                        );
                       },
                       child: Container(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Text(
-                          "Checkout",
+                          "Gift!",
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!

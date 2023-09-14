@@ -55,7 +55,8 @@ class _AuthScreenState extends State<AuthScreen> {
             'giftTokens': <String, dynamic>{},
             'quests': <String, dynamic>{},
             'wishlist': <String, dynamic>{},
-            'coins': 0
+            'coins': 0,
+            'gifts': [],
           };
 
           try {
