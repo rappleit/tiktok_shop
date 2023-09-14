@@ -123,7 +123,9 @@ class _GiftsInboxState extends State<GiftsInbox> {
                                           .textTheme
                                           .titleSmall,
                                     ),
-                                    Icon(Icons.arrow_drop_down_outlined)
+                                    Icon(isExpanded
+                                        ? Icons.arrow_drop_up_outlined
+                                        : Icons.arrow_drop_down_outlined)
                                   ],
                                 ),
                               ),
@@ -183,7 +185,7 @@ class _GiftsInboxState extends State<GiftsInbox> {
                                         width: double.infinity,
                                         margin: const EdgeInsets.all(16),
                                         child: Text(
-                                          "From ${gifterName}:\n${giftsByUser['note']}",
+                                          'Note:\n"${giftsByUser['note']}"',
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleSmall,

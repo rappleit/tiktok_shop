@@ -4,10 +4,20 @@ import 'package:tiktok_shop/screens/tribes/video_posts.dart';
 
 class Post extends StatefulWidget {
   final bool isBigger;
+  final Color? iconColor;
+  final String? iconNumber;
+  final String? category;
+  final String? title;
+  final String? imageUrl;
 
   const Post({
     super.key,
     this.isBigger = false,
+    this.iconColor,
+    this.iconNumber,
+    this.category,
+    this.title,
+    this.imageUrl,
   });
 
   @override
@@ -45,7 +55,7 @@ class _PostState extends State<Post> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xFFEE9A1D),
+                  color: widget.iconColor ?? Color(0xFFEE9A1D),
                 ),
                 child: Padding(
                   padding:
@@ -55,7 +65,7 @@ class _PostState extends State<Post> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '124',
+                        widget.iconNumber ?? "124",
                         style: TextStyle(
                           fontSize: widget.isBigger ? 22 : 16,
                           fontWeight: FontWeight.bold,
@@ -79,7 +89,7 @@ class _PostState extends State<Post> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Fashion Tribe | Product Impact',
+                        widget.category ?? "Fashion Tribe | Product Impact",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -91,7 +101,7 @@ class _PostState extends State<Post> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Uniqlo Airism Tshirt Review',
+                        widget.title ?? "Uniqlo Airism Tshirt Review",
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
@@ -143,8 +153,8 @@ class _PostState extends State<Post> {
               if (widget.isBigger)
                 Container(
                   child: Image.network(
-                    "https://picsum.photos/250?image=9",
-                    height: 100,
+                    widget.imageUrl ?? "https://picsum.photos/250?image=9",
+                    width: 100,
                   ),
                 ),
             ],

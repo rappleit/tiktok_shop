@@ -189,15 +189,34 @@ class _TribesScreenState extends State<TribesScreen>
                           children: [
                             Post(
                               isBigger: true,
+                              imageUrl:
+                                  "https://youthopia.sg/wp-content/uploads/2022/01/uniqlo-new-colours-airism-u-cotton-crew-neck-oversized-t-shirt-492x480.jpg",
                             ),
                             Post(
                               isBigger: true,
+                              iconColor: Colors.red,
+                              iconNumber: "98",
+                              imageUrl:
+                                  "https://lzd-img-global.slatic.net/g/p/03100fddb8c89bcfa46ce35e9d6e55ef.jpg_80x80q80.jpg_.webp",
+                              title: "Let's talk Uniqlo trousers",
+                              category: "Uniqlo Kings | Review",
                             ),
                             Post(
                               isBigger: true,
+                              iconColor: Colors.purple,
+                              iconNumber: "50",
+                              imageUrl:
+                                  "https://publish.one37pm.net/wp-content/uploads/2020/07/bestnewbalancesneakers-hero.jpg?fit=1600%2C707",
+                              title: "New Balances > Yeezy",
+                              category: "NB Warriors | Review",
                             ),
                             Post(
                               isBigger: true,
+                              iconColor: Colors.black,
+                              iconNumber: "17",
+                              imageUrl:
+                                  "https://www.mrporter.com/variants/images/1647597309528762/in/w560_q60.jpg",
+                              title: "Best way to wash...",
                             ),
                             Post(
                               isBigger: true,

@@ -127,8 +127,19 @@ class _TribePostsState extends State<TribePosts> {
                 ),
               ),
               // Your other content can be added here, instead of PostsTribe
-              const Post(isBigger: true),
-              const Post(isBigger: true),
+              const Post(
+                isBigger: true,
+                imageUrl:
+                    "https://youthopia.sg/wp-content/uploads/2022/01/uniqlo-new-colours-airism-u-cotton-crew-neck-oversized-t-shirt-492x480.jpg",
+              ),
+              const Post(
+                isBigger: true,
+                iconColor: Colors.red,
+                iconNumber: "98",
+                imageUrl:
+                    "https://lzd-img-global.slatic.net/g/p/03100fddb8c89bcfa46ce35e9d6e55ef.jpg_80x80q80.jpg_.webp",
+                title: "Let's talk Uniqlo trousers",
+              ),
               // Add more widgets as needed
             ],
           ),
