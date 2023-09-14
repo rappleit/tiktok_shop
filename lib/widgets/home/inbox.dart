@@ -116,13 +116,9 @@ class Inbox extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Colors.grey,
                 ),
-                child: const Center(
-                  child: Icon(
-                    Icons.person_3,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
+                child: Center(
+                    child: Image.network(
+                        "https://avatars.githubusercontent.com/u/80181684?v=4")),
               ),
               title: "Semipreparedcat",
               activity: "shared a Quest",

@@ -37,7 +37,8 @@ class MostPopular extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TribeItem(
-                  imageUrl: 'https://picsum.photos/250?image=4',
+                  imageUrl:
+                      'https://logowik.com/content/uploads/images/uniqlo-lifewear6749.logowik.com.webp',
                   name: 'Uniqlo Shirts',
                   numFollowing: 3,
                 ),

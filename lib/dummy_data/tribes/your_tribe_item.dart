@@ -1,9 +1,9 @@
 import 'package:tiktok_shop/models/tribes/your_tribe_item.dart';
 
-List<YourTribeItem> yourTribesData = [
+List<YourTribeItem> yourTribesData = const [
   YourTribeItem(
     imageUrl:
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        'https://scontent.fsin10-1.fna.fbcdn.net/v/t39.30808-6/312460486_412411664424067_467452589401308183_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=UJ6PWO9OAt0AX-HFszO&_nc_ht=scontent.fsin10-1.fna&oh=00_AfBBusZri6Jsh8DoTzkVmqnQ2MJPF88G4A6FAdCmTUaC_A&oe=65074102',
     name: 'Art Lovers',
     subscriberCount: 123456,
   ),
@@ -159,13 +159,13 @@ List<YourTribeItem> yourTribesData = [
   ),
   YourTribeItem(
     imageUrl:
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        'https://media.istockphoto.com/id/678860582/photo/three-young-nerds-with-thinking-caps.jpg?s=1024x1024&w=is&k=20&c=7SaMFErlpEwPphPjA-uDXHxV9x-BuO43x9oh-XAKOQI=',
     name: 'Academic Achievers',
     subscriberCount: 1000,
   ),
   YourTribeItem(
     imageUrl:
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        'https://ngo.hkcss.org.hk/res/upload/6f/d1/050fb77f1c2c8230620a74c3fbde.png',
     name: 'Bird Watching Society',
     subscriberCount: 10000,
   ),

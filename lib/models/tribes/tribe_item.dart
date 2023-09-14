@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_shop/screens/tribes/tribe_posts.dart';
+import 'dart:math';
 
 class TribeItem extends StatelessWidget {
   final String imageUrl;
@@ -59,8 +60,8 @@ class TribeItem extends StatelessWidget {
                     for (int i = 0; i < numFollowing!; i++)
                       ClipOval(
                         child: Image.network(
-                          imageUrl,
-                          width: 25,
+                          getRandomImageUrl(),
+                          width: 35,
                         ),
                       ),
                   ],
@@ -70,5 +71,16 @@ class TribeItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getRandomImageUrl() {
+    final List<String> imageUrls = [
+      'https://avatars.githubusercontent.com/u/86306864?s=400&u=6d391bbde5fc02abbd33b714517fb294ef9d8313&v=4',
+      'https://avatars.githubusercontent.com/u/45510188?v=4',
+      'https://avatars.githubusercontent.com/u/80181684?v=4',
+    ];
+    Random random = Random();
+    int index = random.nextInt(imageUrls.length);
+    return imageUrls[index];
   }
 }

@@ -29,7 +29,7 @@ class HomeBody extends StatelessWidget {
                 right: 0,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
                   color: Colors.transparent,
                   child: Row(
                     children: [
