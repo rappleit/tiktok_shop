@@ -23,15 +23,16 @@ class ProductGridView extends StatelessWidget {
   final String? category;
   final bool isForDisplay;
   final int selectedTabIndex;
-  final String? userid;
+  final String? username;
+  final String? userId;
 
-  const ProductGridView({
-    super.key,
-    this.category,
-    this.isForDisplay = false,
-    this.selectedTabIndex = 0,
-    this.userid,
-  });
+  const ProductGridView(
+      {super.key,
+      this.category,
+      this.isForDisplay = false,
+      this.selectedTabIndex = 0,
+      this.username,
+      this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -105,17 +106,25 @@ class ProductGridView extends StatelessWidget {
                     );
             },
           )
-        : StreamBuilder<DocumentSnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('user')
-                .doc(userid!)
-                .snapshots(),
+        : StreamBuilder<dynamic>(
+            stream: userId == null
+                ? FirebaseFirestore.instance
+                    .collection('user')
+                    .where('username', isEqualTo: username!)
+                    .snapshots()
+                : FirebaseFirestore.instance
+                    .collection('user')
+                    .doc(userId)
+                    .snapshots(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting ||
                   !snapshot.hasData) {
                 return CircularProgressIndicator();
               }
-              var wishlist = snapshot.data!["wishlist"].entries.toList();
+
+              var wishlist = userId == null
+                  ? snapshot.data!.docs.first["wishlist"].entries.toList()
+                  : snapshot.data!["wishlist"].entries.toList();
               var products = isForDisplay
                   ? (wishlist.length > 2 ? (wishlist.sublist(0, 2)) : wishlist)
                   : wishlist;
@@ -134,7 +143,8 @@ class ProductGridView extends StatelessWidget {
                     )
                   : Expanded(
                       child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                         ),
                         itemCount: products.length,

@@ -253,9 +253,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                         .then((doc) => doc.data()!['wishlist'])
                                         .then((wishlistData) {
                                       if (wishlistData.containsKey(id)) {
-                                        userDoc.update({
-                                          "wishlist": wishlistData.remove(id)
-                                        });
+                                        wishlistData.remove(id);
+                                        userDoc
+                                            .update({"wishlist": wishlistData});
                                       } else {
                                         Map toAdd = {...wishlistData};
                                         toAdd[id] = {
@@ -278,8 +278,8 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(isAddedToWishlist
-                                            ? 'Removed from wishlist!'
-                                            : 'Added to wishlist!'),
+                                            ? 'Added to wishlist!'
+                                            : 'Removed from wishlist!'),
                                         duration: const Duration(seconds: 3),
                                         action: SnackBarAction(
                                           label: 'Undo',

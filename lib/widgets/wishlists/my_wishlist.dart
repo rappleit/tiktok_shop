@@ -61,7 +61,7 @@ class _MyWishlistState extends State<MyWishlist> {
           height: 200,
           child: ProductGridView(
               isForDisplay: true,
-              userid: FirebaseAuth.instance.currentUser!.uid),
+              userId: FirebaseAuth.instance.currentUser!.uid),
         ),
       ],
     );

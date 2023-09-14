@@ -31,7 +31,7 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
                   children: [
                     ActivityCard(
                         content: '@semipreparedcat added to their wishlist!'),
-                    ActivityCard(content: '@asyrafcodes joined Coders United.'),
+                    ActivityCard(content: '@asycodes joined Coders United.'),
                     ActivityCard(
                         content: '@Gnoot reviewed Uniqlo Airism Tshirt.'),
                   ],

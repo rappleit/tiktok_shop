@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tiktok_shop/widgets/bottom_navbar.dart';
 import 'package:tiktok_shop/widgets/home/coins.dart';
 import 'package:tiktok_shop/widgets/home/flash_sale.dart';
@@ -16,6 +17,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(237, 255, 255, 255),
@@ -33,12 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             IconButton(
-              icon: const Icon(Icons.menu),
-              color: Colors.black,
               onPressed: () {
-                // Open the drawer
-                Scaffold.of(context).openDrawer();
+                FirebaseAuth.instance.signOut();
               },
+              icon: const Icon(
+                Icons.exit_to_app,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -80,7 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
                             ),
-                            padding: const EdgeInsets.only(left: 16, right: 0),
+                            padding: const EdgeInsets.only(
+                              left: 16,
+                              right: 0,
+                            ),
                             child: Row(
                               children: [
                                 // Spacing before "Search for items"

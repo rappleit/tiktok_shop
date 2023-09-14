@@ -108,7 +108,7 @@ class Wishlist extends StatelessWidget {
             ),
           ),
           ProductGridView(
-            userid: "ndRZEc51vcSuX3JDEOY2B3OPNEr1",
+            username: name,
           )
         ],
       ),

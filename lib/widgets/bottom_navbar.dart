@@ -8,7 +8,7 @@ class BottomNavBar extends StatelessWidget {
     return BottomAppBar(
       color: Colors.white,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
