@@ -1,6 +1,6 @@
 import 'package:tiktok_shop/models/tribes/your_tribe_item.dart';
 
-List<YourTribeItem> yourTribesData = const [
+List<YourTribeItem> yourTribesData = [
   YourTribeItem(
     imageUrl:
         'https://scontent.fsin10-1.fna.fbcdn.net/v/t39.30808-6/312460486_412411664424067_467452589401308183_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=UJ6PWO9OAt0AX-HFszO&_nc_ht=scontent.fsin10-1.fna&oh=00_AfBBusZri6Jsh8DoTzkVmqnQ2MJPF88G4A6FAdCmTUaC_A&oe=65074102',
