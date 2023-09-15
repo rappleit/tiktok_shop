@@ -45,14 +45,16 @@ class _OtherWishlistsState extends State<OtherWishlists> {
                   Row(
                     children: [
                       WishlistItem(
-                        imageUrl: 'assets/placeholders/product1.jpg',
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/86306864?s=400&u=6d391bbde5fc02abbd33b714517fb294ef9d8313&v=4',
                         name: 'Gnoot',
                         count: 8,
                         isBigger: true,
                       ),
                       Spacer(),
                       WishlistItem(
-                        imageUrl: 'assets/placeholders/product1.jpg',
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/80181684?v=4',
                         name: 'semipreparedcat',
                         count: 6,
                         isBigger: true,
@@ -62,15 +64,17 @@ class _OtherWishlistsState extends State<OtherWishlists> {
                   Row(
                     children: [
                       WishlistItem(
-                        imageUrl: 'assets/placeholders/product1.jpg',
-                        name: 'semipreparedcat',
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/45510188?v=4',
+                        name: 'asycodes',
                         count: 2,
                         isBigger: true,
                       ),
                       Spacer(),
                       WishlistItem(
-                        imageUrl: 'assets/placeholders/product1.jpg',
-                        name: 'semipreparedcat',
+                        imageUrl:
+                            'https://avatars.githubusercontent.com/u/45510188?v=4',
+                        name: 'asycodes',
                         count: 4,
                         isBigger: true,
                       ),
