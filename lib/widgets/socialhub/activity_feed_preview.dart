@@ -34,6 +34,9 @@ class ActivityFeedPreviewWidget extends StatelessWidget {
                     ActivityCard(content: '@asycodes joined Coders United.'),
                     ActivityCard(
                         content: '@Gnoot reviewed Uniqlo Airism Tshirt.'),
+                    ActivityCard(
+                        content: '@asycodes started October Challenge: ...'),
+                    ActivityCard(content: '@Gnoot completed Refer-ee.'),
                   ],
                 ),
               ),
