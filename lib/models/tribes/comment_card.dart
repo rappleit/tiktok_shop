@@ -15,12 +15,11 @@ class CommentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10), // Adjust margin as needed
-      padding: const EdgeInsets.all(10), // Adjust padding as needed
+      margin: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white, // Set background color
-        borderRadius:
-            BorderRadius.circular(10), // Add rounded corners if desired
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -46,9 +45,56 @@ class CommentCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-              height: 8), // Add spacing between username/date and comment text
+          const SizedBox(height: 14),
           Text(description),
+          const SizedBox(height: 6),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.whatshot_outlined,
+                      size: 16,
+                      color: Color.fromARGB(255, 92, 92, 92),
+                    ),
+                    const SizedBox(width: 8.0),
+                    Text(
+                      "150",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 92, 92, 92),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.comment,
+                      size: 16,
+                      color: Color.fromARGB(255, 92, 92, 92),
+                    ),
+                    const SizedBox(width: 8.0),
+                    Text(
+                      "Reply",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 92, 92, 92),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

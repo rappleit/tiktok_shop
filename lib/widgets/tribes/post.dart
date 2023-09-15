@@ -37,7 +37,7 @@ class _PostState extends State<Post> {
                 Date: '12 June 2023',
                 description: 'dasssssssss',
                 videoUrl: 'assets/IMG_0069.MOV',
-                score: 1233313), //this is where we send data of the tribe
+                score: 1200), //this is where we send data of the tribe
           ),
         );
       },
